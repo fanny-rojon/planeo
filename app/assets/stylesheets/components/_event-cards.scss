@@ -1,0 +1,38 @@
+.custom-card {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  position: relative;
+  border-radius: 3px;
+  min-height: 100px;
+  &-info {
+    padding: 6% 0;
+  }
+  p {
+    margin: 0;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: lighter;
+    opacity: .6;
+    text-indent: 0.03em;
+  }
+  h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 3px;
+  }
+  img {
+    width: 25%;
+    object-fit: cover;
+  }
+  .organizer {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 8px;
+    right: 7px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+  }
+}
