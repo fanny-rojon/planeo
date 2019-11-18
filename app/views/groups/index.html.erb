@@ -1,8 +1,11 @@
 <% @groups.each do |group| %>
 <img src="<%= group.photo %>" alt="" class="temp-image">
-<%= group.name %>
+<%= group.name %> <%= link_to raw('<i class="fas fa-trash"></i>'), group_path(group.id), method: :delete, data: { confirm: "Are you sure?" } %> <%= link_to raw('<i class="fas fa-edit"></i>'), edit_group_path(group.id)%>
 <br>
 <% group.users.each do |user| %>
 <%= user.name %>
 <% end %>
+<br>
 <% end %>
+<br>
+<%= link_to "Create a new group", new_group_path %>
