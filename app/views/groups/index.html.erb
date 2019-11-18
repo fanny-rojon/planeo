@@ -1,0 +1,8 @@
+<% @groups.each do |group| %>
+<img src="<%= group.photo %>" alt="" class="temp-image">
+<%= group.name %>
+<br>
+<% group.users.each do |user| %>
+<%= user.name %>
+<% end %>
+<% end %>

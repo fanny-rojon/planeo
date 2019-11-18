@@ -1,5 +1,7 @@
 class GroupsController < ApplicationController
   def index
+    @user = current_user
+    @groups = User.find(@user.id).groups
   end
 
   def new
