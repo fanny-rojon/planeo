@@ -17,10 +17,20 @@
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700&display=swap');
 
-body {
-  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset_url("body-background.jpeg");
-  background-repeat: no-repeat;
-  background-position: center;
-  object-fit: cover;
+body, html {
+  height: 100%;
   min-height: 120vh;
+}
+
+.back{
+  /* The image used */
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset_url("body-background.jpeg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
