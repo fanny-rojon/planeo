@@ -1,5 +1,5 @@
 <h1>Event Details</h1>
 <%= @event.name %>
-<%= link_to "Back to all events", group_path %>
-<%= link_to "Edit event", edit_group_event_path %>
-<%= link_to "Delete event", group_event_path(@event), method: :delete, data: { confirm: "Are you sure?" } %>
+<%= link_to "Back to all events", group_path(@event.group) %>
+<%= link_to "Edit event", edit_group_event_path(@event.group, @event) %>
+<%= link_to "Delete event", group_event_path(@event.group, @event), method: :delete, data: { confirm: "Are you sure?" } %>

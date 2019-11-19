@@ -1,2 +1,8 @@
-<%= @group %>
+<h2><%= @group.name %>'s Events</h2>
+<% @group.events.each do |ev| %>
+<img src="<%= ev.photo %> " alt="">
+<h4><%= link_to ev.name, group_event_path(@group, ev) %></h4>
+<p><%= ev.address %></p>
+<br>
+<% end %>
 
