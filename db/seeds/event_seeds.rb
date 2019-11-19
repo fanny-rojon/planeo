@@ -1,8 +1,10 @@
+puts "Destroying events"
 Event.destroy_all
 
 
 group = Group.find_by(name: "Le wagon")
 
+puts "Creating events"
 
 Event.create!(
   name: "Formula 1 in Monaco",
@@ -27,3 +29,4 @@ Event.create!(
   photo: "http://www.decibeles.com.co/wp-content/uploads/2017/09/mamona.jpg",
   group: group
 )
+puts "Events created"

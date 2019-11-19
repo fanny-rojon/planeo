@@ -1,4 +1,7 @@
+puts "Destroying users"
 User.destroy_all
+
+puts "Creating users"
 
 user1 = User.create!(
   name: "Karim Soussi",
@@ -24,3 +27,4 @@ user4 = User.create!(
   password: "123456",
   photo: "https://avatars2.githubusercontent.com/u/54022229?v=4"
 )
+puts "Users created"
