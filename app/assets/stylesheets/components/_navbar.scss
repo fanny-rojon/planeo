@@ -12,6 +12,7 @@
   width: 40px;
 }
 
+
 .planeo-logo {
   img {
     background: #F25004;
@@ -22,10 +23,22 @@
 }
 
 .navbar {
-  padding: 0.2rem 0.2rem !important;
+  padding: 0.35rem 0.35rem !important;
   opacity: 0.9;
+  a {
+    color: white;
+  }
+  .dropdown {
+  a {
+    color: rgb(50, 50, 50);
+  }
+}
 }
 
 ul {
   list-style: none;
+}
+
+.nav-link {
+  letter-spacing: 0.15rem;
 }
