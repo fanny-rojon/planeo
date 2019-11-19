@@ -1,6 +1,29 @@
+<<<<<<< HEAD
+<div class="card-trip">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg" />
+  <div class="card-trip-infos">
+    <div>
+      <h2 class="card-trip-pricing">29 Nov</h2>
+      <p>FRIDAY</p>
+    </div>
+    <div>
+      <h2><%= @event.name %></h2>
+      <p>11:00 - Carmencita Bar</p>
+    </div>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+  </div>
+</div>
+
+
+
+<%= link_to "Back to all events", group_path(@event.group) %>
+<%= link_to "Edit event", edit_group_event_path(@event.group, @event) %>
+<%= link_to "Delete event", group_event_path(@event.group, @event), method: :delete, data: { confirm: "Are you sure?" } %>
+=======
 <h1>Event Details</h1>
 <img src="<%= @event.photo %> " alt="">
 <h2 style="text-align: center"><%= @event.name %></h2>
 <%= link_to "Back to all events", group_path(@event.group), class: "secondary-button" %>
 <%= link_to "Edit event", edit_group_event_path(@event.group, @event), class: "btn btn-light" %>
 <%= link_to "Delete event", group_event_path(@event.group, @event), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-light" %>
+>>>>>>> 024368db41234a7326b56baaca5a7b6523d04b18
