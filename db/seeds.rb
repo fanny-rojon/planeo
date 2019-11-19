@@ -4,7 +4,8 @@ require_relative './seeds/event_seeds'
 
 puts "Assiging users to groups..."
 
-User.all.each do |us|
-  Group.first.users << us
+Group.all.each do |group|
+  User.all.each do |user|
+    group.users << user
+  end
 end
-
