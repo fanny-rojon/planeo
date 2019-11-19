@@ -4,18 +4,20 @@ Group.destroy_all
 puts "Creating groups..."
 
 
-group1 = Group.create!(
+group1 = Group.new(
   name: "Le wagon",
-  remote_photo_url: "http://www.w3.org/1999/xlink"
 )
+  group1.remote_photo_url = "https://archive.org/services/img/github.com-lewagon-dotfiles_-_2019-01-08_18-23-29"
+  group1.save
 
-group2 = Group.create!(
+group2 = Group.new(
   name: "Sisters...",
-  remote_photo_url: "https://pmcdeadline2.files.wordpress.com/2016/12/stepsisters.png?w=595&h=383&crop=1"
 )
-
-group3 = Group.create!(
+  group2.remote_photo_url = "https://pmcdeadline2.files.wordpress.com/2016/12/stepsisters.png?w=595&h=383&crop=1"
+  group2.save
+group3 = Group.new(
   name: "Girls Night...",
-  remote_photo_url: "https://www.thekingsferry.co.uk/sites/default/files/xmas-party-50-50%20%281%29.jpg"
 )
-puts "Groups created."
+  group3.remote_photo_url = "https://www.thekingsferry.co.uk/sites/default/files/xmas-party-50-50%20%281%29.jpg"
+  group3.save
+puts "Groups newd."
