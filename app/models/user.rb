@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :usergroups, dependent: :destroy
   validates :name, presence: true
   has_many :groups, through: :usergroups
+  has_many :events, through: :groups
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end
