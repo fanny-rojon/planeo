@@ -3,6 +3,5 @@ require_relative './seeds/group_seeds'
 require_relative './seeds/event_seeds'
 
 User.all.each do |us|
-  Group.first.users << us
+  Group.find(1).users << us
 end
-
