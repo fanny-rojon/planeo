@@ -8,6 +8,6 @@ User.all.each do |us|
 end
 
 
-Event.find(1).organizer = user1
-Event.find(2).organizer = user2
-Event.find(3).organizer = user3
+# Event.find(1).organizer = User.find(1)
+# Event.find(2).organizer = user2
+# Event.find(3).organizer = user3
