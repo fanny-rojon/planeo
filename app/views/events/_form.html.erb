@@ -1,6 +1,15 @@
-<h1>Event Details</h1>
-<%= simple_form_for [@group, @event] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.button :submit %>
-<% end %>
+<%= simple_form_for (@group) do |f| %>
+  <div class="box-w mt-3">
+    <div class="form-inputs">
+      <%= f.input :name, placeholder: "Event Name"%>
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
+      </div>
+    <div class="submit text-center">
+      <%= f.button :submit, class: "custom-button padding-right-left"%>
+    <% end %>
+    </div>
+    <div class="text-center mt-3">
+      <%= link_to "Go Back", groups_path, class: "custom-button" %>
+    </div>
+  </div>
