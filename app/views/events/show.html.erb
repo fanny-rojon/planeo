@@ -1,5 +1,17 @@
-<h1>Event Details</h1>
-<%= @event.name %>
+<div class="card-trip">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg" />
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= @event.name %></h2>
+      <p>11:00 - Carmencita Bar</p>
+    </div>
+    <h2 class="card-trip-pricing">29 Nov</h2>
+    <img src=<% @event.organizer.photo %> class="card-trip-user avatar-bordered" />
+  </div>
+</div>
+
+
+
 <%= link_to "Back to all events", group_path(@event.group) %>
 <%= link_to "Edit event", edit_group_event_path(@event.group, @event) %>
 <%= link_to "Delete event", group_event_path(@event.group, @event), method: :delete, data: { confirm: "Are you sure?" } %>
