@@ -1,4 +1,8 @@
+puts "Destroying groups"
 Group.destroy_all
+
+puts "Creating groups"
+
 
 Group.create!(
   name: "Le wagon",
@@ -14,3 +18,4 @@ Group.create!(
   name: "Girls Night",
   photo: "https://www.thekingsferry.co.uk/sites/default/files/xmas-party-50-50%20%281%29.jpg"
 )
+puts "Groups created"
