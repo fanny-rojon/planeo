@@ -4,10 +4,6 @@ require_relative './seeds/event_seeds'
 
 puts "Assiging users to groups..."
 User.all.each do |us|
-  Group.first.users << us
+  Group.find(1).users << us
 end
 
-
-# Event.find(1).organizer = User.find(1)
-# Event.find(2).organizer = user2
-# Event.find(3).organizer = user3

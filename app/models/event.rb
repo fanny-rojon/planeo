@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
+  mount_uploader :photo, PhotoUploader
   belongs_to :group
   has_many :usergroups, through: :group
   has_one :user, through: :group

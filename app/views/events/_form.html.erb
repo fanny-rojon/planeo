@@ -1,8 +1,12 @@
 <%= simple_form_for [@group, @event] do |f| %>
   <div class="box-w mt-3">
     <div class="form-inputs">
+        <div class="text-center mt-3 mb-3">
+          <%= f.input :photo %>
+          <%= f.input :photo_cache, as: :hidden %>
+        </div>
       <%= f.input :name, placeholder: "Event Name"%>
-      <%= f.input :photo, placeholder: "URL of photo" %>
+          <%= f.input :address, placeholder: "Address" %>
       </div>
     <div class="submit text-center">
       <%= f.button :submit, class: "custom-button padding-right-left"%>
