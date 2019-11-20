@@ -1,11 +1,11 @@
 <div class="container text-center mt-4 head">
-  <h2 class="text-white">MY GROUPS</h2>
+  <h2 class="text-white mt-3">MY GROUPS</h2>
 </div>
-<div class="container-fluid">
+<div class="container-fluid main-container">
   <div class="row">
     <% current_user.groups.each do |group| %>
     <%= link_to group_path(group.id) do %>
-    <div class="col-lg-4 col-md-6 col-12">
+    <div class="col-12">
       <div class="custom-group-card d-flex mt-4 m-2">
         <img src="<%= group.photo %>">
           <div class="custom-group-card-info m-0">
@@ -17,4 +17,7 @@
     </div>
     <% end %>
   </div>
+    <div class="text-center mt-5">
+      <%= link_to "New Group", new_group_path, class: "primary-button" %>
+    </div>
 </div>

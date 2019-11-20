@@ -1,11 +1,15 @@
 .custom-group-card {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.2);
   position: relative;
   border-radius: 3px;
   min-height: 100px;
   align-items: center;
+  transition: all 1s ease;
+  &:hover {
+    box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.4);
+  }
   &-info {
     padding: 6% 0;
   }
@@ -16,18 +20,31 @@
     font-weight: lighter;
     opacity: .6;
     text-indent: 0.03em;
+    text-decoration: none;
   }
   h2 {
     margin: 0;
     font-size: 1.5rem;
     font-family: 'Roboto', sans-serif;
     margin-bottom: 3px;
+    text-decoration: none;
   }
   img {
     margin: 0 3%;
-    height: 90px;
-    width: 90px;
+    height: 80px;
+    width: 80px;
     border-radius: 50%;
-    object-fit: cover;
   }
+}
+a {
+  color: inherit;
+  &:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+
+}
+
+.main-container {
+  max-width: 600px;
 }
