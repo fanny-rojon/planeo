@@ -1,21 +1,29 @@
-<div class="card-trip">
+<div class="card-event">
   <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg" />
-  <div class="card-trip-infos">
+  <div class="card-event-infos">
     <div>
-      <h2 class="card-trip-pricing">29 Nov</h2>
+      <h2 class="card-event-date">29 Nov</h2>
       <p>FRIDAY</p>
     </div>
-    <div>
+    <div class="event-details">
       <h2><%= @event.name %></h2>
-      <p>11:00 - Carmencita Bar</p>
+      <p>11:00 - La Mamona</p>
     </div>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+    <img src="https://avatars2.githubusercontent.com/u/54022229?v=4" class="card-event-user avatar-bordered" />
   </div>
 </div>
 
-<h1>Event Details</h1>
-<img src="<%= @event.photo %> " alt="">
-<h2 style="text-align: center"><%= @event.name %></h2>
+<div class="map">
+  <p>MAP PLACEHOLDER</p>
+</div>
+
+<div class="rsvp">
+  <p>RSVP</p>
+</div>
+
+<div class="buttons">
 <%= link_to "Back to all events", group_path(@event.group), class: "secondary-button" %>
+<br>
 <%= link_to "Edit event", edit_group_event_path(@event.group, @event), class: "btn btn-light" %>
 <%= link_to "Delete event", group_event_path(@event.group, @event), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-light" %>
+</div>
