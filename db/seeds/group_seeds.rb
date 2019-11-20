@@ -32,7 +32,7 @@ group4 = Group.new(
 group5 = Group.new(
   name: "Female Coders",
 )
-  group5.remote_photo_url = "https://images.livemint.com/img/2019/07/12/600x338/Coders_1562919969409.jpg"
+  group5.remote_photo_url = "https://www.thecoderschool.com/wp-content/uploads/2019/02/iStock-939787416-1030x687.jpg"
   group5.save
 
 puts "Groups created."

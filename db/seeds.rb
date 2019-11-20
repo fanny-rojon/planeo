@@ -24,6 +24,8 @@ herve = User.find_by(name: "Herve")
 javier = User.find_by(name: "Javier")
 niklas = User.find_by(name: "Niklas")
 gonzalo = User.find_by(name: "Gonzalo")
+martin = User.find_by(name: "Martin")
+ricardo = User.find_by(name: "Ricardo")
 
 # Sisters Users
 caroline = User.find_by(name: "Caroline")
@@ -38,13 +40,13 @@ isa = User.find_by(name: "Isa")
 violetta = User.find_by(name: "Violetta")
 anita = User.find_by(name: "Anita")
 
-group1.users << [felipe, karim, bitna, fanny, carol, ana, gabriela, belen, maja, herve, niklas, javier, gonzalo]
+group1.users << [felipe, karim, bitna, fanny, carol, ana, gabriela, belen, maja, herve, niklas, javier, gonzalo, martin, ricardo]
 
 group2.users << [caroline, laure, delphine, celine, fanny]
 
 group3.users << [beatriz, isa, violetta, bea, anita, fanny]
 
-group4.users << [karim, felipe, niklas, herve, javier]
+group4.users << [karim, felipe, niklas, herve, javier, gonzalo, ricardo, martin]
 
 group5.users << [bitna, fanny, carol, ana, gabriela, belen, maja]
 
