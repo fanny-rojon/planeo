@@ -110,6 +110,22 @@ gonzalo = User.new(
   gonzalo.remote_photo_url = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/dkldu2lxom8jhdqn0ucd.jpg"
   gonzalo.save
 
+martin = User.new(
+  name: "Martin",
+  email: "martin@lewagon.com",
+  password: "123456",
+)
+  martin.remote_photo_url = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/ssjktftgsdicvy1cersj.jpg"
+  martin.save
+
+ricardo = User.new(
+  name: "Ricardo",
+  email: "ricardo@lewagon.com",
+  password: "123456",
+)
+  ricardo.remote_photo_url = "https://avatars0.githubusercontent.com/u/14589?v=4"
+  ricardo.save
+
 
 # Sisters Users
 
