@@ -11,7 +11,11 @@
     <%= stylesheet_pack_tag 'application', media: 'all' %>
   </head>
   <body class="back" id="<%= params[:controller] %>/<%= params[:action] %>">
-    <%= render 'shared/navbar' unless @navbar_hidden %>
+    <%= if @navbar_hidden
+          render 'shared/home-nav'
+        else
+          render 'shared/navbar'
+        end %>
     <%= yield %>
     <%= render 'shared/flashes' %>
     <%= javascript_include_tag 'application' %>
