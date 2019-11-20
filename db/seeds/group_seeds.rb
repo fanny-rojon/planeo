@@ -29,4 +29,10 @@ group4 = Group.new(
   group4.remote_photo_url = "https://specials-images.forbesimg.com/imageserve/5ce8218fcd1f12000a2a49a4/960x0.jpg?fit=scale"
   group4.save
 
+group5 = Group.new(
+  name: "Female Coders",
+)
+  group5.remote_photo_url = "https://images.livemint.com/img/2019/07/12/600x338/Coders_1562919969409.jpg"
+  group5.save
+
 puts "Groups created."

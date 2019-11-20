@@ -75,7 +75,7 @@ herve = User.new(
   email: "herve@lewagon.com",
   password: "123456",
 )
-  herve.remote_photo_url = "https://avatars1.githubusercontent.com/u/49677730?v=4"
+  herve.remote_photo_url = "https://avatars1.githubusercontent.com/u/53608033?v=4"
   herve.save
 
 maja = User.new(
@@ -83,7 +83,7 @@ maja = User.new(
   email: "maja@lewagon.com",
   password: "123456",
 )
-  maja.remote_photo_url = "https://avatars1.githubusercontent.com/u/49677730?v=4"
+  maja.remote_photo_url = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/xrrc7hws4zs0ewcvsenc.jpg"
   maja.save
 
 javier = User.new(
@@ -91,7 +91,7 @@ javier = User.new(
   email: "javier@lewagon.com",
   password: "123456",
 )
-  javier.remote_photo_url = "https://avatars1.githubusercontent.com/u/49677730?v=4"
+  javier.remote_photo_url = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/mpjepc82amqtuo9xqlzm.jpg"
   javier.save
 
 niklas = User.new(
@@ -99,7 +99,7 @@ niklas = User.new(
   email: "niklas@lewagon.com",
   password: "123456",
 )
-  niklas.remote_photo_url = "https://avatars1.githubusercontent.com/u/49677730?v=4"
+  niklas.remote_photo_url = "https://avatars1.githubusercontent.com/u/55530252?v=4"
   niklas.save
 
 gonzalo = User.new(
@@ -107,7 +107,7 @@ gonzalo = User.new(
   email: "gonzalo@lewagon.com",
   password: "123456",
 )
-  gonzalo.remote_photo_url = "https://avatars1.githubusercontent.com/u/49677730?v=4"
+  gonzalo.remote_photo_url = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/dkldu2lxom8jhdqn0ucd.jpg"
   gonzalo.save
 
 
