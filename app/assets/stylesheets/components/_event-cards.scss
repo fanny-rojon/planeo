@@ -38,3 +38,19 @@
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
   }
 }
+
+.main-container-two {
+  width: 90%;
+  margin: 0 auto;
+}
+
+@include media-breakpoint-up(lg) {
+    .main-container-two {
+    max-width: 800px;
+    margin: 0 auto;
+  }}
+@include media-breakpoint-up(xl) {
+     .main-container-two {
+    max-width: 1300px;
+    margin: 0 auto;
+  }}
