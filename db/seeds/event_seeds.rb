@@ -29,7 +29,7 @@ event3 = Event.create!(
   state: "organized",
   address: "Calle de Juan de Mariana, 14, 28045 Madrid",
   group: Group.find_by(name: "Le Wagon"),
-  organizer: User.find_by(name: "Bitna")
+  organizer: User.find_by(name: "Carol")
 )
   event3.remote_photo_url = "https://ep01.epimg.net/elviajero/imagenes/2017/06/05/actualidad/1496661055_237522_1496665028_sumario_normal.jpg"
   event3.save
@@ -59,7 +59,7 @@ event6 = Event.create!(
   state: "organized",
   address: "Calle de Ruiz de Alarcón, 23, 28014 Madrid",
   group: Group.find_by(name: "Le Wagon"),
-  organizer: User.find_by(name: "Fanny")
+  organizer: User.find_by(name: "Herve")
 )
   event6.remote_photo_url = "https://www.elsoldemexico.com.mx/cultura/arte/48j2v7-museo-del-prado.jpg/alternates/LANDSCAPE_400/museo del prado.jpg"
   event6.save
@@ -69,7 +69,7 @@ event7 = Event.create!(
   state: "proposed",
   address: "Calle de El Españoleto, 2, 28010 Madrid",
   group: Group.find_by(name: "Le Wagon"),
-  organizer: User.find_by(name: "Felipe")
+  organizer: User.find_by(name: "Ana")
 )
   event7.remote_photo_url = "https://mybayutcdn.bayut.com/mybayut/wp-content/uploads/03-9.jpg"
   event7.save
@@ -133,6 +133,16 @@ event13 = Event.create!(
 )
   event13.remote_photo_url = "https://www.tourismebretagne.com/app/uploads/crt-bretagne/2018/10/1-le-croisic-le-port-y-le-gal-1200x675.jpg"
   event13.save
+
+event14 = Event.create!(
+  name: "Team Death Match",
+  state: "organized",
+  address: "Talent Garden",
+  group: Group.find_by(name: "Call of Duty"),
+  organizer: User.find_by(name: "Karim")
+)
+  event14.remote_photo_url = "https://i.gadgets360cdn.com/large/cod_mobile_main_1570103396815.jpg"
+  event14.save
 
 puts "Events created."
 

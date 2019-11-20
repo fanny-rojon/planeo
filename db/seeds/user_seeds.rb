@@ -4,6 +4,8 @@ User.destroy_all
 
 puts "Creating users..."
 
+# Le Wagon Users
+
 karim = User.new(
   name: "Karim",
   email: "karim@lewagon.com",
@@ -36,6 +38,81 @@ fanny = User.new(
   fanny.remote_photo_url = "https://avatars2.githubusercontent.com/u/54022229?v=4"
   fanny.save
 
+carol = User.new(
+  name: "Carol",
+  email: "carol@lewagon.com",
+  password: "123456",
+)
+  carol.remote_photo_url = "https://avatars2.githubusercontent.com/u/55203965?v=4"
+  carol.save
+
+ana = User.new(
+  name: "Ana",
+  email: "ana@lewagon.com",
+  password: "123456",
+)
+  ana.remote_photo_url = "https://avatars2.githubusercontent.com/u/2753447?v=4"
+  ana.save
+
+belen = User.new(
+  name: "Belen",
+  email: "belen@lewagon.com",
+  password: "123456",
+)
+  belen.remote_photo_url = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/lnxfmia8mpojopc81tpv.jpg"
+  belen.save
+
+gabriela = User.new(
+  name: "Gabriela",
+  email: "gabriela@lewagon.com",
+  password: "123456",
+)
+  gabriela.remote_photo_url = "https://avatars1.githubusercontent.com/u/49677730?v=4"
+  gabriela.save
+
+herve = User.new(
+  name: "Herve",
+  email: "herve@lewagon.com",
+  password: "123456",
+)
+  herve.remote_photo_url = "https://avatars1.githubusercontent.com/u/49677730?v=4"
+  herve.save
+
+maja = User.new(
+  name: "Maja",
+  email: "maja@lewagon.com",
+  password: "123456",
+)
+  maja.remote_photo_url = "https://avatars1.githubusercontent.com/u/49677730?v=4"
+  maja.save
+
+javier = User.new(
+  name: "Javier",
+  email: "javier@lewagon.com",
+  password: "123456",
+)
+  javier.remote_photo_url = "https://avatars1.githubusercontent.com/u/49677730?v=4"
+  javier.save
+
+niklas = User.new(
+  name: "Niklas",
+  email: "niklas@lewagon.com",
+  password: "123456",
+)
+  niklas.remote_photo_url = "https://avatars1.githubusercontent.com/u/49677730?v=4"
+  niklas.save
+
+gonzalo = User.new(
+  name: "Gonzalo",
+  email: "gonzalo@lewagon.com",
+  password: "123456",
+)
+  gonzalo.remote_photo_url = "https://avatars1.githubusercontent.com/u/49677730?v=4"
+  gonzalo.save
+
+
+# Sisters Users
+
 caroline = User.new(
   name: "Caroline",
   email: "caroline@lewagon.com",
@@ -67,6 +144,8 @@ celine = User.new(
 )
   celine.remote_photo_url = "https://scontent-mad1-1.xx.fbcdn.net/v/t1.0-0/p640x640/60355863_581805952342379_455130528941604864_o.jpg?_nc_cat=107&_nc_oc=AQkQoZtVHRoC64l29rrbrqsFfbyfL50rDQs0C8Aez2VVmBYTjHW17wE8_Y4TcZKP4Hs&_nc_ht=scontent-mad1-1.xx&oh=2326f997e28b911702a5fb0aa807cd5b&oe=5E88D6E2"
   celine.save
+
+# Girls Night Users
 
 violetta = User.new(
   name: "Violetta",
@@ -102,7 +181,7 @@ bea = User.new(
 
 anita = User.new(
   name: "Anita",
-  email: "Anita@lewagon.com",
+  email: "anita@lewagon.com",
   password: "123456",
 )
   anita.remote_photo_url = "https://pps.whatsapp.net/v/t61.24694-24/64219745_387115768821815_7278587961640222720_n.jpg?oe=5DD90CA7&oh=c98da6edaf882fa210dd1a0d50347da6&t=l&u=34619175370@c.us&i=1563096055"
