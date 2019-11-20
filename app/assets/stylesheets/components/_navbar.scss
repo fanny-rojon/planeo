@@ -26,7 +26,10 @@
   padding: 0.5rem 0.5rem !important;
   opacity: 0.9;
   a {
-    color: white;
+    color: rgb(230, 230, 230);
+    &:hover {
+      color: white;
+    }
   }
   .dropdown {
   a {
