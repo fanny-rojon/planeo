@@ -19,7 +19,8 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @event = Event.new
-    @organizedevents = @group.events.select { |event| event.state == "organized" && event.organizer != current_user }
+    @myevents = @group.events.select { |event| event.organizer == current_user }
+    @organizedevents = @group.events.select { |event| event.state == "organized" && event.organizer != current_user}
     @proposedevents = @group.events.select { |event| event.state == "proposed" }
   end
 
