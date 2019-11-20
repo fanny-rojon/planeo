@@ -5,16 +5,15 @@
           <%= f.input :photo %>
           <%= f.input :photo_cache, as: :hidden %>
         </div>
-      <%= f.input :name, placeholder: "Event Name"%>
-          <%= f.input :address, placeholder: "Address"%>
+      <%= f.input :name, placeholder: "Event Name" %>
+          <%= f.input :address, as: :hidden %>
       </div>
-      <div
-        id="map"
-        style="width: 100%;
-        height: 600px;
-        background-color: red"
-        data-markers="<%= @marker.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+     <div
+      id="map"
+      style="width: 100%;
+      height: 600px;"
+      data-marker="<%= @marker.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
       ></div>
     <div class="submit text-center">
       <%= f.button :submit, class: "custom-button padding-right-left"%>
@@ -24,4 +23,3 @@
       <%= link_to "Go Back", group_path(@group), class: "custom-button" %>
     </div>
   </div>
-
