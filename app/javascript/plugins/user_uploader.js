@@ -3,7 +3,7 @@ const readURL = (input, placeholder) => {
     const reader = new FileReader();
 
     reader.onload = function(e) {
-       placeholder.setAttribute("style", `background-image: url(${e.target.result}); width: 120px; height: 120px;`);
+       placeholder.setAttribute("style", `background-image: url(${e.target.result}); width: 120px; height: 120px; border: none;`);
        placeholder.innerText = "";
     }
 
