@@ -23,4 +23,10 @@ group3 = Group.new(
   group3.remote_photo_url = "https://d31fr2pwly4c4s.cloudfront.net/f/9/3/1206250_0_girls-night-out_400.jpg"
   group3.save
 
+group4 = Group.new(
+  name: "Call of Duty",
+)
+  group4.remote_photo_url = "https://specials-images.forbesimg.com/imageserve/5ce8218fcd1f12000a2a49a4/960x0.jpg?fit=scale"
+  group4.save
+
 puts "Groups created."
