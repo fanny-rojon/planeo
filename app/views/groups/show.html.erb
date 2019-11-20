@@ -1,24 +1,49 @@
-<h1><%= @group.name %>'s Events</h2>
-<h3>Upcoming Events</h3>
-<% @organizedevents.each do |ev| %>
-<div class="custom-card">
-<img src="<%= ev.photo %> " alt="">
-<h2><%= link_to ev.name, group_event_path(@group, ev) %></h2>
-<p><%= ev.address %></p>
+<div class="container main-container">
+  <div class="text-center head mt-3 mb-4">
+    <h2 class="text-white mt-4"><strong><%= @group.name.upcase %></strong></h2>
+    <h2 class="text-white mt-4">UPCOMING EVENTS</h2>
+  </div>
+  <div class="row">
+      <div class="col-12">
+      <% @organizedevents.each do |event| %>
+      <div class="custom-card d-flex m-2 align-items-center">
+        <img src="<%= event.photo %>">
+          <div class="custom-card-info m-0">
+            <h2 class="m-0 pl-3"><%= event.name %></h2>
+            <p class="m-0 pl-3"><%= event.address %></p>
+          </div>
+          <img src="<%= event.organizer.photo %>" alt="" class="organizer">
+      </div>
+      <% end %>
+    </div>
 </div>
-<br>
-<% end %>
-<h3 style="color: white">Proposed Events</h3>
-<div class="custom-card">
-<% @proposedevents.each do |ev| %>
-<h2><%= link_to ev.name, group_event_path(@group, ev) %></h2>
+  <div class="text-center head mt-3 mb-4">
+    <h2 class="text-white">PROPOSED EVENTS</h2>
+  </div>
+  <div class="row">
+      <% @proposedevents.each do |event| %>
+          <div class="col-12">
+      <div class="custom-card d-flex m-2 align-items-center">
+        <img src="<%= event.photo %>">
+          <div class="custom-card-info m-0">
+            <h2 class="m-0 pl-3"><%= event.name %></h2>
+            <p class="m-0 pl-3"><%= event.address %></p>
+          </div>
+          <img src="<%= event.organizer.photo %>" alt="" class="organizer">
+      </div>
+    </div>
+      <% end %>
 </div>
-<br>
-<% end %>
 
-<button type="button" class="btn primary-button" data-toggle="modal" data-target="#exampleModalCenter">
-  Create a new event
-</button>
+<div class="text-center mt-4 mb-4">
+  <button type="button" class="btn primary-button" data-toggle="modal" data-target="#exampleModalCenter">
+    Create a new event
+  </button>
+</div>
+
+<div class="text-center mt-4 pb-5">
+  <%= link_to "Go Back", groups_path, class: "primary-button" %>
+</div>
 
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
