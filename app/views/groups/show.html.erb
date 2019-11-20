@@ -1,6 +1,7 @@
 <div class="main-container-two">
   <div class="text-center head mt-3 mb-4">
     <h2 class="text-white mt-4"><strong><%= @group.name.upcase %></strong></h2>
+    <% if @myevents.length > 0 %>
     <h2 class="text-white mt-4">MY EVENTS</h2>
   </div>
   <div class="row">
@@ -10,7 +11,7 @@
           <div class="custom-card d-flex m-2 align-items-center">
             <img src="<%= event.photo %>">
               <div class="custom-card-info m-0">
-                <h2 class="m-0 pl-3"><%= event.name %></h2>
+                <h3 class="m-0 pl-3"><%= event.name %></h3>
                 <p class="m-0 pl-3"><%= event.address %></p>
               </div>
               <img src="<%= event.organizer.photo %>" alt="" class="organizer">
@@ -19,6 +20,8 @@
       <% end %>
     <% end %>
 </div>
+<% end %>
+<% if @organizedevents.length > 0 %>
   <div class="text-center head mt-3 mb-4">
     <h2 class="text-white mt-4">UPCOMING EVENTS</h2>
   </div>
@@ -29,7 +32,7 @@
           <div class="custom-card d-flex m-2 align-items-center">
             <img src="<%= event.photo %>">
               <div class="custom-card-info m-0">
-                <h2 class="m-0 pl-3"><%= event.name %></h2>
+                <h3 class="m-0 pl-3"><%= event.name %></h3>
                 <p class="m-0 pl-3"><%= event.address %></p>
               </div>
               <img src="<%= event.organizer.photo %>" alt="" class="organizer">
@@ -38,6 +41,8 @@
     <% end %>
   <% end %>
 </div>
+<% end %>
+<% if @proposedevents.length > 0 %>
   <div class="text-center head mt-3 mb-4">
     <h2 class="text-white">PROPOSED EVENTS</h2>
   </div>
@@ -47,13 +52,14 @@
             <div class="custom-card d-flex m-2 align-items-center">
               <img src="<%= event.photo %>">
                 <div class="custom-card-info m-0">
-                  <h2 class="m-0 pl-3"><%= event.name %></h2>
+                  <h3 class="m-0 pl-3"><%= event.name %></h3>
                   <p class="m-0 pl-3"><%= event.address %></p>
                 </div>
                 <img src="<%= event.organizer.photo %>" alt="" class="organizer">
             </div>
           </div>
         <% end %>
+     <% end %>
 </div>
 
 <div class="text-center mt-4 mb-4">
