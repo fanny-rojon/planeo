@@ -1,0 +1,23 @@
+const readURL = (input, placeholder) => {
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+       placeholder.setAttribute("style", `background-image: url(${e.target.result}); width: 142px; height: 112px;`);
+       placeholder.innerText = "";
+    }
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+const setupPreview = () => {
+  const userPhoto = document.querySelector("#user_photo");
+  const placeholder = document.querySelector(".file .optional")
+
+  userPhoto.addEventListener("change", (event) => {
+    readURL(userPhoto, placeholder);
+  });
+}
+
+export { setupPreview };
