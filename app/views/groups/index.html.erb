@@ -10,7 +10,7 @@
         <img src="<%= group.photo %>">
           <div class="custom-group-card-info m-0">
             <h2 class="m-0 mb-1"><%= group.name %></h2>
-            <p class="m-0"><% group.users.first(2).each do |user| %><%= "#{user.name}, "%><% end %> <%= "#{group.users.last.name}..."%> </p>
+            <p class="m-0"><% group.users.first(3).each do |user| %><%= "#{user.name}, "%><% end %> <%= "#{group.users.last.name}..."%> </p>
           </div>
       </div>
       <% end %>
