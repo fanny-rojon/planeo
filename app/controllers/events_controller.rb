@@ -12,7 +12,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.group = @group
-
+    @marker = { lat: 40.398471, lng: -3.686408 }
     if params[:commit] == "Propose"
       @event.state = "proposed"
       if @event.save
@@ -33,7 +33,7 @@ class EventsController < ApplicationController
 
   def edit
     # authorize @event
-    @marker = { lat: 40.398504, lng: -3.686342 }
+    @marker = { lat: 40.398471, lng: -3.686408 }
   end
 
   def update
