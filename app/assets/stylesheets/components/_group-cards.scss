@@ -1,14 +1,14 @@
 .custom-group-card {
   overflow: hidden;
   background: white;
-  box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.2);
+  box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.1);
   position: relative;
   border-radius: 3px;
   min-height: 100px;
   align-items: center;
   transition: all 1s ease;
   &:hover {
-    box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.4);
+    box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.7);
   }
   &-info {
     padding: 6% 0;
