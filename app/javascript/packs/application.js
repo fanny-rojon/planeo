@@ -10,7 +10,6 @@ const newGroupPage = document.getElementById("groups/new")
 
 
 initMapbox();
-//....
 
 if (signUpPage) {
   setupPreview();
@@ -19,3 +18,4 @@ if (signUpPage) {
 if (newGroupPage) {
   setPreview();
 }
+
