@@ -33,6 +33,7 @@ class EventsController < ApplicationController
 
   def edit
     # authorize @event
+    @marker = { lat: 40.398504, lng: -3.686342 }
   end
 
   def update

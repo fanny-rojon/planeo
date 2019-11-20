@@ -1,14 +1,18 @@
-<h2><%= @group.name %>'s Events</h2>
+<h1><%= @group.name %>'s Events</h2>
 <h3>Upcoming Events</h3>
 <% @organizedevents.each do |ev| %>
+<div class="custom-card">
 <img src="<%= ev.photo %> " alt="">
-<h4><%= link_to ev.name, group_event_path(@group, ev) %></h4>
+<h2><%= link_to ev.name, group_event_path(@group, ev) %></h2>
 <p><%= ev.address %></p>
+</div>
 <br>
 <% end %>
-<h3>Proposed Events</h3>
+<h3 style="color: white">Proposed Events</h3>
+<div class="custom-card">
 <% @proposedevents.each do |ev| %>
-<h4><%= link_to ev.name, group_event_path(@group, ev) %></h4>
+<h2><%= link_to ev.name, group_event_path(@group, ev) %></h2>
+</div>
 <br>
 <% end %>
 
