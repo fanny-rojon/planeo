@@ -8,6 +8,8 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.float :longitude
       t.string :photo
       t.date :deadline
+      t.string :comment
+      t.string :time
 
       t.timestamps
     end
