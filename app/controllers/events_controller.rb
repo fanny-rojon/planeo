@@ -26,6 +26,7 @@ class EventsController < ApplicationController
       @event.state = "organized"
       @event.organizer = current_user
       if @event.save
+        @event.event_dates.build
         render :edit
       else
         redirect_to group_path(@group), notice: 'The name cannot be empty'
@@ -60,6 +61,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:name, :state, :address, :photo)
+    params.require(:event).permit(:name, :state, :address, :photo, event_dates_attributes: [:date])
   end
 end
