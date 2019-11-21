@@ -65,7 +65,7 @@ event6 = Event.create!(
   event6.save
 
 event7 = Event.create!(
-  name: "House Party at Ana's",
+  name: "Party at Ana's",
   state: "proposed",
   address: "Calle de El Españoleto, 2, 28010 Madrid",
   group: Group.find_by(name: "Le Wagon"),
