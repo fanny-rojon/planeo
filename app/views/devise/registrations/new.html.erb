@@ -10,6 +10,7 @@
           <%= f.input :photo, label: "Add Photo +" %>
           <%= f.input :photo_cache, as: :hidden %>
         </div>
+        <%= hidden_field_tag :code, params[:code] %>
         <%= f.input :name,
                     required: true,
                     autofocus: true,

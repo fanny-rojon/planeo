@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_21_105747) do
+ActiveRecord::Schema.define(version: 2019_11_21_142538) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,9 @@ ActiveRecord::Schema.define(version: 2019_11_21_105747) do
     t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "code"
+    t.bigint "administrator_id"
+    t.index ["administrator_id"], name: "index_groups_on_administrator_id"
   end
 
   create_table "usergroups", force: :cascade do |t|
@@ -74,6 +77,7 @@ ActiveRecord::Schema.define(version: 2019_11_21_105747) do
   add_foreign_key "event_dates", "events"
   add_foreign_key "events", "groups"
   add_foreign_key "events", "users", column: "organizer_id"
+  add_foreign_key "groups", "users", column: "administrator_id"
   add_foreign_key "usergroups", "groups"
   add_foreign_key "usergroups", "users"
 end
