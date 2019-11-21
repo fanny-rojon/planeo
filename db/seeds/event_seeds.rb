@@ -15,7 +15,7 @@ event1.remote_photo_url = "https://robbreportedit.files.wordpress.com/2019/11/sl
 event1.save
 
 event2 = Event.create!(
-  name: "Real Madrid - Barcelona Game",
+  name: "Real Madrid - Barcelona",
   state: "organized",
   address: "Av. de Concha Espina, 1, 28036 Madrid",
   group: Group.find_by(name: "Le Wagon"),
@@ -65,7 +65,7 @@ event6 = Event.create!(
   event6.save
 
 event7 = Event.create!(
-  name: "Housewarming Party at Ana's",
+  name: "Housewarming Party",
   state: "proposed",
   address: "Calle de El Españoleto, 2, 28010 Madrid",
   group: Group.find_by(name: "Le Wagon"),
