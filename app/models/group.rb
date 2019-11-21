@@ -4,4 +4,12 @@ class Group < ApplicationRecord
   has_many :users, through: :usergroups
   has_many :events, dependent: :destroy
   validates :name, presence: true
+
+  before_save :generate_code
+
+  private
+
+  def generate_code
+    self.code ||= SecureRandom.hex(3)
+  end
 end
