@@ -72,6 +72,10 @@
   <%= link_to "Go Back", groups_path, class: "primary-button" %>
 </div>
 
+<div class="text-center mt-4 pb-5">
+  <%= link_to "Delete group", group_path(@group), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-light" %>
+</div>
+
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
