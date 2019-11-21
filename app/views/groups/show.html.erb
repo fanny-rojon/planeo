@@ -12,7 +12,11 @@
             <% unless event.photo.identifier.nil? %>
             <img src="<%= event.photo %>">
             <% end %>
+            <% if event.photo.identifier.nil? %>
+              <div class="custom-card-info w-100 text-center m-0">
+            <% else %>
               <div class="custom-card-info m-0">
+            <% end %>
                 <h3 class="m-0 pl-3"><%= event.name %></h3>
                 <p class="m-0 pl-3"><%= event.address %></p>
               </div>
@@ -72,10 +76,6 @@
 
 <div class="text-center mt-4 pb-5">
   <%= link_to "Go Back", groups_path, class: "primary-button" %>
-</div>
-
-<div class="text-center mt-4 pb-5">
-  <%= link_to "Delete group", group_path(@group), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-light" %>
 </div>
 
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
