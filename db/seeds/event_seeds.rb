@@ -145,13 +145,13 @@ event14 = Event.create!(
   event14.save
 
 event15 = Event.create!(
-  name: "Wonder Women in Tech Conference",
+  name: "WonderWomen Tech Conf.",
   state: "organized",
-  address: "Long Beach, California, USA",
+  address: "Long Beach, California",
   group: Group.find_by(name: "Female Coders"),
   organizer: User.find_by(name: "Bitna")
 )
-  event15.remote_photo_url = "https://www.europeanwomenintech.com/hs-fs/hubfs/European Women in Tech Lynda OLeary.jpg?width=558&height=330&name=European Women in Tech Lynda OLeary.jpg"
+  event15.remote_photo_url = "https://s3-us-west-2.amazonaws.com/issuewireassets/primg/4968/join-europes-largest-women-in-tech-conference-european-women-in-technology-201875.jpg"
   event15.save
 
 puts "Events created."

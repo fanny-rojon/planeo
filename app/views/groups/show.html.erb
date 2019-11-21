@@ -1,55 +1,65 @@
 <div class="main-container-two">
   <div class="text-center head mt-3 mb-4">
     <h2 class="text-white mt-4"><strong><%= @group.name.upcase %></strong></h2>
+    <% if @myevents.length > 0 %>
     <h2 class="text-white mt-4">MY EVENTS</h2>
   </div>
   <div class="row">
       <% @myevents.each do |event| %>
       <div class="col-xl-6 col-12">
-      <div class="custom-card d-flex m-2 align-items-center">
-        <img src="<%= event.photo %>">
-          <div class="custom-card-info m-0">
-            <h2 class="m-0 pl-3"><%= event.name %></h2>
-            <p class="m-0 pl-3"><%= event.address %></p>
+        <%= link_to group_event_path(event.group, event) do %>
+          <div class="custom-card d-flex m-2 align-items-center">
+            <img src="<%= event.photo %>">
+              <div class="custom-card-info m-0">
+                <h3 class="m-0 pl-3"><%= event.name %></h3>
+                <p class="m-0 pl-3"><%= event.address %></p>
+              </div>
+              <img src="<%= event.organizer.photo %>" alt="" class="organizer">
           </div>
-          <img src="<%= event.organizer.photo %>" alt="" class="organizer">
-      </div>
-    </div>
+        </div>
       <% end %>
+    <% end %>
 </div>
-<div class="text-center head mt-3 mb-4">
-    <h2 class="text-white">UPCOMING EVENTS</h2>
+<% end %>
+<% if @organizedevents.length > 0 %>
+  <div class="text-center head mt-3 mb-4">
+    <h2 class="text-white mt-4">UPCOMING EVENTS</h2>
   </div>
   <div class="row">
       <% @organizedevents.each do |event| %>
       <div class="col-xl-6 col-12">
-      <div class="custom-card d-flex m-2 align-items-center">
-        <img src="<%= event.photo %>">
-          <div class="custom-card-info m-0">
-            <h2 class="m-0 pl-3"><%= event.name %></h2>
-            <p class="m-0 pl-3"><%= event.address %></p>
+        <%= link_to group_event_path(event.group, event) do %>
+          <div class="custom-card d-flex m-2 align-items-center">
+            <img src="<%= event.photo %>">
+              <div class="custom-card-info m-0">
+                <h3 class="m-0 pl-3"><%= event.name %></h3>
+                <p class="m-0 pl-3"><%= event.address %></p>
+              </div>
+              <img src="<%= event.organizer.photo %>" alt="" class="organizer">
           </div>
-          <img src="<%= event.organizer.photo %>" alt="" class="organizer">
-      </div>
-    </div>
-      <% end %>
+        </div>
+    <% end %>
+  <% end %>
 </div>
+<% end %>
+<% if @proposedevents.length > 0 %>
   <div class="text-center head mt-3 mb-4">
     <h2 class="text-white">PROPOSED EVENTS</h2>
   </div>
   <div class="row">
       <% @proposedevents.each do |event| %>
           <div class="col-xl-6 col-12">
-      <div class="custom-card d-flex m-2 align-items-center">
-        <img src="<%= event.photo %>">
-          <div class="custom-card-info m-0">
-            <h2 class="m-0 pl-3"><%= event.name %></h2>
-            <p class="m-0 pl-3"><%= event.address %></p>
+            <div class="custom-card d-flex m-2 align-items-center">
+              <img src="<%= event.photo %>">
+                <div class="custom-card-info m-0">
+                  <h3 class="m-0 pl-3"><%= event.name %></h3>
+                  <p class="m-0 pl-3"><%= event.address %></p>
+                </div>
+                <img src="<%= event.organizer.photo %>" alt="" class="organizer">
+            </div>
           </div>
-          <img src="<%= event.organizer.photo %>" alt="" class="organizer">
-      </div>
-    </div>
-      <% end %>
+        <% end %>
+     <% end %>
 </div>
 
 <div class="text-center mt-4 mb-4">
@@ -60,6 +70,10 @@
 
 <div class="text-center mt-4 pb-5">
   <%= link_to "Go Back", groups_path, class: "primary-button" %>
+</div>
+
+<div class="text-center mt-4 pb-5">
+  <%= link_to "Delete group", group_path(@group), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-light" %>
 </div>
 
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
