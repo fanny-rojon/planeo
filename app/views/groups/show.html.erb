@@ -1,12 +1,15 @@
+<%= render "shared/modal" %>
 <div class="main-container-two">
   <div class="text-center head mt-3 mb-4">
+    <div data-toggle="modal" data-target="#exampleModal">
+      <i class="fas fa-ellipsis-v text-white" style="font-size: 2em;transform: rotate(90deg);"></i>
+    </div>
     <h2 class="text-white mt-4"><strong><%= @group.name.upcase %></strong></h2>
   </div>
     <% if @myevents.length > 0 %>
   <div class="text-center head mt-3 mb-4">
     <h2 class="text-white mt-4">MY EVENTS</h2>
   </div>
-
   <div class="row">
       <% @myevents.each do |event| %>
       <div class="col-xl-6 col-12">
@@ -76,7 +79,6 @@
 </div>
 
 <div class="text-center mt-4 mb-4">
-  <h2><%= invite_url(code: @group.code) %></h2>
   <button type="button" class="btn primary-button" data-toggle="modal" data-target="#exampleModalCenter">
     Create a new event
   </button>
