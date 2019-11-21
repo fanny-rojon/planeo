@@ -15,6 +15,15 @@
       data-marker="<%= @marker.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
       ></div>
+    <div>
+      <h3 style="text-align: center">Choose the dates</h3>
+      <div class="datebars">
+      <%= f.simple_fields_for :event_dates do |p| %>
+        <%= p.input :date, as: :string, label: false, required: false, input_html: {class: "datepicker"} %>
+        <%= link_to 'Add date', '#', id: 'add-date-link', class: 'btn btn-outline-primary btn-small btn-block' %>
+      <% end %>
+      </div>
+    </div>
     <div class="submit text-center">
       <%= f.button :submit, class: "custom-button padding-right-left"%>
     <% end %>

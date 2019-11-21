@@ -15,6 +15,14 @@ ActiveRecord::Schema.define(version: 2019_11_21_142538) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "event_dates", force: :cascade do |t|
+    t.string "date"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_event_dates_on_event_id"
+  end
+
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.string "state"
@@ -66,6 +74,7 @@ ActiveRecord::Schema.define(version: 2019_11_21_142538) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "event_dates", "events"
   add_foreign_key "events", "groups"
   add_foreign_key "events", "users", column: "organizer_id"
   add_foreign_key "groups", "users", column: "administrator_id"
