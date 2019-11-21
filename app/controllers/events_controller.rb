@@ -17,6 +17,7 @@ class EventsController < ApplicationController
     @marker = { lat: 40.398471, lng: -3.686408 }
     if params[:commit] == "Propose"
       @event.state = "proposed"
+      @event.organizer = current_user
       if @event.save
         redirect_to group_path(@group)
       else
