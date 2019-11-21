@@ -24,7 +24,11 @@
               <div class="custom-card-info m-0">
             <% end %>
                 <h3 class="m-0 pl-3"><%= event.name %></h3>
-                <p class="m-0 pl-3"><%= event.address %></p>
+                <% if event.comment.nil? || event.comment.length < 44 %>
+                  <p class="m-0 pl-3"><%= event.address %></p>
+                <% else %>
+                  <p class="m-0 pl-3"><%= event.comment %></p>
+                <% end %>
               </div>
               <img src="<%= event.organizer.photo %>" alt="" class="organizer">
           </div>
@@ -51,7 +55,11 @@
               <div class="custom-card-info m-0">
             <% end %>
                 <h3 class="m-0 pl-3"><%= event.name %></h3>
-                <p class="m-0 pl-3"><%= event.address %></p>
+                <% if event.comment.nil? || event.comment.length < 44 %>
+                  <p class="m-0 pl-3"><%= event.address %></p>
+                <% else %>
+                  <p class="m-0 pl-3"><%= event.comment %></p>
+                <% end %>
               </div>
               <img src="<%= event.organizer.photo %>" alt="" class="organizer">
           </div>
