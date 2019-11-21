@@ -7,4 +7,5 @@ class Event < ApplicationRecord
   validates :name, presence: true
   validates :state, inclusion: { in: ["proposed", "organized", "confirmed", "past"] }
   after_validation :geocode, if: :will_save_change_to_address?
+  after_update :geocode
 end

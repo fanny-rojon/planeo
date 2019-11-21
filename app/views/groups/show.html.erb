@@ -9,8 +9,14 @@
       <div class="col-xl-6 col-12">
         <%= link_to group_event_path(event.group, event) do %>
           <div class="custom-card d-flex m-2 align-items-center">
+            <% unless event.photo.identifier.nil? %>
             <img src="<%= event.photo %>">
+            <% end %>
+            <% if event.photo.identifier.nil? %>
+              <div class="custom-card-info w-100 text-center m-0">
+            <% else %>
               <div class="custom-card-info m-0">
+            <% end %>
                 <h3 class="m-0 pl-3"><%= event.name %></h3>
                 <p class="m-0 pl-3"><%= event.address %></p>
               </div>
@@ -30,7 +36,9 @@
       <div class="col-xl-6 col-12">
         <%= link_to group_event_path(event.group, event) do %>
           <div class="custom-card d-flex m-2 align-items-center">
+            <% unless event.photo.identifier.nil? %>
             <img src="<%= event.photo %>">
+            <% end %>
               <div class="custom-card-info m-0">
                 <h3 class="m-0 pl-3"><%= event.name %></h3>
                 <p class="m-0 pl-3"><%= event.address %></p>
@@ -44,18 +52,16 @@
 <% end %>
 <% if @proposedevents.length > 0 %>
   <div class="text-center head mt-3 mb-4">
-    <h2 class="text-white">PROPOSED EVENTS</h2>
+    <h2 class="text-white">WISHLIST</h2>
   </div>
   <div class="row">
       <% @proposedevents.each do |event| %>
-          <div class="col-xl-6 col-12">
-            <div class="custom-card d-flex m-2 align-items-center">
-              <img src="<%= event.photo %>">
-                <div class="custom-card-info m-0">
+          <div class="col-lg-6 col-12">
+            <div class="proposed-card d-flex m-1 align-items-center">
+                <div class="proposed-card-info m-0">
                   <h3 class="m-0 pl-3"><%= event.name %></h3>
-                  <p class="m-0 pl-3"><%= event.address %></p>
+              <i class="fas fa-plus proposed-organizer"></i>
                 </div>
-                <img src="<%= event.organizer.photo %>" alt="" class="organizer">
             </div>
           </div>
         <% end %>
@@ -85,10 +91,9 @@
         <%= simple_form_for [@group, @event] do |f| %>
           <%= f.input :name, placeholder: "Your event's name"%>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-        <%= f.button :submit, "Propose", class: "btn btn-secondary"%>
-        <%= f.button :submit, "Organize", class: "btn btn-primary"%>
+      <div class="modal-footer justify-content-center">
+          <%= f.button :submit, "Propose", class: "secondary-button"%>
+          <%= f.button :submit, "Organize", class: "primary-button"%>
       </div>
       <% end %>
     </div>
