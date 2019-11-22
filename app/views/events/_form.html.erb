@@ -2,7 +2,7 @@
   <div class="box-w mt-3">
     <div class="form-inputs">
         <div class="text-center mt-3 mb-3">
-          <%= f.input :photo %>
+          <%= f.input :photo, label: ('<i class="fas fa-camera photo-icon"></i>').html_safe %>
           <%= f.input :photo_cache, as: :hidden %>
         </div>
       <%= f.input :name, label: "What's the plan?", placeholder: "e.g. Brunch at Carmencita"  %>
