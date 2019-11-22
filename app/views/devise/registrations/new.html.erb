@@ -17,7 +17,6 @@
                     input_html: { autocomplete: "email" }%>
         <%= f.input :email,
                     required: true,
-                    autofocus: true,
                     input_html: { autocomplete: "email" }%>
         <%= f.input :password,
                     required: true,
@@ -35,4 +34,3 @@
       <div class="text-center bottom-text pb-2 pt-2">
        <p>Already Have An Account? <strong><%= link_to "Log In", new_user_session_path, class: "text-center bottom-text" %></strong></p>
     </div>
-

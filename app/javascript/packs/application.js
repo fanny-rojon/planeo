@@ -13,11 +13,18 @@ const signUpPage = document.getElementById("devise/registrations/new")
 const newGroupPage = document.getElementById("groups/new")
 const newEventPage = document.getElementById("events/create")
 const showEventPage = document.getElementById("events/show")
+const editEventPage = document.getElementById("events/edit")
+
 
 if (newEventPage) {
   initMapbox();
   mapboxAddressValue();
   selectDates();
+}
+
+if (editEventPage) {
+  initMapbox();
+  mapboxAddressValue();
 }
 
 if (showEventPage) {
