@@ -1,11 +1,11 @@
 <%= render "shared/modal" %>
 <div class="main-container-two">
-  <div class="text-center pt-2 border-bottom pb-2 group-photos d-flex justify-content-center">
+  <div class="text-center pt-2 border-bottom pb-2 group-photos d-flex justify-content-center w-100">
     <% @group.users.first(10).each do |user| %>
     <img src="<%= user.photo %>" class="avatar photos" alt="">
     <% end %>
   </div>
-  <div class="text-center head mt-3 mb-4">
+  <div class="text-center head mt-3 mb-3">
     <h2 class="mt-4"><strong><%= @group.name.upcase %></strong></h2>
   </div>
     <% if @myevents.length > 0 %>
@@ -68,6 +68,11 @@
         </div>
     <% end %>
   <% end %>
+  </div>
+  <div class="d-flex align-items-center justify-content-center text-center m-3" style="width: 98%;">
+    <a class="primary-button w-100 text-white" data-toggle="modal" data-target="#exampleModalCenter">
+      New event
+    </a>
 </div>
 <% end %>
 <% if @proposedevents.length > 0 %>
@@ -88,19 +93,11 @@
           </div>
         <% end %>
      <% end %>
+  <div class="d-flex align-items-center justify-content-center text-center m-3" style="width: 98%;">
+    <a class="primary-button w-100 text-white" data-toggle="modal" data-target="#exampleModalCenter">
+      Invite a Friend
+    </a>
 </div>
-
-<div class="text-center mt-4 mb-4">
-  <button type="button" class="btn primary-button" data-toggle="modal" data-target="#exampleModalCenter">
-    Create a new event
-  </button>
-  <button type="button" class="btn primary-button" data-toggle="modal" data-target="#exampleModalCode">
-    Invite your friends
-  </button>
-</div>
-
-<div class="text-center mt-4 pb-5">
-  <%= link_to "Go Back", groups_path, class: "primary-button" %>
 </div>
 
   <div class="text-right">
