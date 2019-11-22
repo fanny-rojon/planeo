@@ -31,7 +31,7 @@ event3 = Event.create!(
   address: "Calle de Juan de Mariana, 14, 28045 Madrid",
   group: Group.find_by(name: "Le Wagon"),
   organizer: User.find_by(name: "Carol"),
-  comment: "Un caña por favor!"
+  comment: "Una caña por favor!"
 )
   event3.remote_photo_url = "https://ep01.epimg.net/elviajero/imagenes/2017/06/05/actualidad/1496661055_237522_1496665028_sumario_normal.jpg"
   event3.save
