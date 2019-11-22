@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_group, only: [:create, :edit, :update]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :get_action_params, only: [:edit, :create]
 
   def new
     @event = Event.new
@@ -8,6 +9,10 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    timehash = @event.time.gsub('}', "").split(",")
+    hour = timehash[3].split("=>")[1]
+    minute = timehash[4].split("=>")[1]
+    @time = hour + ':' + minute
     @marker = { lat: @event.latitude, lng: @event.longitude }
   end
 
@@ -36,11 +41,12 @@ class EventsController < ApplicationController
   end
 
   def edit
-    # authorize @event
-    @marker = { lat: 40.398471, lng: -3.686408 }
+    @event.latitude != nil ? @marker = { lat: @event.latitude, lng: @event.longitude } : @marker = { lat: 40.398471, lng: -3.686408 }
   end
 
   def update
+    @event.state = "organized" if @event.state == "proposed"
+    @event.organizer = current_user
     @event.update(event_params)
     redirect_to group_event_path(@group, @event)
   end
@@ -53,6 +59,10 @@ class EventsController < ApplicationController
 
   private
 
+  def get_action_params
+    @action = params[:action]
+  end
+
   def set_event
     @event = Event.find(params[:id])
   end
@@ -62,6 +72,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:name, :state, :address, :photo, event_dates_attributes: [:date])
+    params.require(:event).permit(:name, :state, :address, :photo, :organizer, :time, event_dates_attributes: [:date])
   end
 end
