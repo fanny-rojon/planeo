@@ -192,7 +192,7 @@ bea = User.new(
   email: "bea@lewagon.com",
   password: "123456",
 )
-  bea.remote_photo_url = "https://pps.whatsapp.net/v/t61.24694-24/70162519_728463174335874_7986757096672853308_n.jpg?oe=5DD90C28&oh=57de67e6a27bfc2fb1a1779a38fac68b&t=l&u=34676053544@c.us&i=1573549882"
+  bea.remote_photo_url = "https://pps.whatsapp.net/v/t61.24694-24/55957536_2188272121264933_6299094371702669312_n.jpg?oe=5DDBEBDF&oh=616cb45c7d50777474b0d6ecb39faa16&t=l&u=34684145999@c.us&i=1551563356"
   bea.save
 
 anita = User.new(
