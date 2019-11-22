@@ -1,11 +1,11 @@
 <%= render "shared/modal" %>
 <div class="main-container-two">
   <div class="text-center head mt-3 mb-4">
-    <h2 class="text-white mt-4"><strong><%= @group.name.upcase %></strong></h2>
+    <h2 class="mt-4"><strong><%= @group.name.upcase %></strong></h2>
   </div>
     <% if @myevents.length > 0 %>
   <div class="text-center head mt-3 mb-4">
-    <h2 class="text-white mt-4">MY EVENTS</h2>
+    <h2 class="mt-4">MY EVENTS</h2>
   </div>
   <div class="row">
       <% @myevents.each do |event| %>
@@ -36,7 +36,7 @@
     <% end %>
 <% if @organizedevents.length > 0 %>
   <div class="text-center head mt-3 mb-4">
-    <h2 class="text-white mt-4">UPCOMING EVENTS</h2>
+    <h2 class="mt-4">UPCOMING EVENTS</h2>
   </div>
   <div class="row">
       <% @organizedevents.each do |event| %>
@@ -67,7 +67,7 @@
 <% end %>
 <% if @proposedevents.length > 0 %>
   <div class="text-center head mt-3 mb-4">
-    <h2 class="text-white">WISHLIST</h2>
+    <h2>WISHLIST</h2>
   </div>
   <div class="row">
       <% @proposedevents.each do |event| %>
