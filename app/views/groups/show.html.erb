@@ -1,5 +1,10 @@
 <%= render "shared/modal" %>
 <div class="main-container-two">
+  <div class="text-center pt-2 border-bottom pb-2 group-photos d-flex justify-content-center">
+    <% @group.users.first(10).each do |user| %>
+    <img src="<%= user.photo %>" class="avatar photos" alt="">
+    <% end %>
+  </div>
   <div class="text-center head mt-3 mb-4">
     <h2 class="mt-4"><strong><%= @group.name.upcase %></strong></h2>
   </div>

@@ -66,3 +66,20 @@ a {
 .main-container {
   max-width: 800px;
 }
+.group-photos {
+  flex-wrap: wrap;
+  .photos {
+    box-shadow: 1px 1px 10px rgba(black, 0.1);
+    transition: transform 0.2s ease;
+    &:hover {
+      transform: translateY(-0.5rem);
+      ~ .photos {
+          transform: translateX(0.8rem);
+      }
+    }
+  }
+  .photos:not(:first-child) {
+    margin-left: -0.8rem;
+  }
+
+}
