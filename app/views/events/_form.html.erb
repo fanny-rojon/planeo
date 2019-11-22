@@ -19,6 +19,7 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
       ></div>
     <div>
+    <% if @action == "create" %>
       <div>
         <%= f.label :name, "When is it happening?" %>
         <p><em>Choose date options.</em></p>
@@ -29,6 +30,7 @@
           <%= link_to 'Add date', '#', id: 'add-date-link', class: 'btn btn-outline-primary btn-small btn-block' %>
         <% end %>
       </div>
+      <% end %>
       <div>
         <%= f.input :time, label: "At what time?", placeholder: "11:00am", as: :time %>
       </div>
