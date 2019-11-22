@@ -19,7 +19,8 @@ event2 = Event.create!(
   state: "organized",
   address: "Av. de Concha Espina, 1, 28036 Madrid",
   group: Group.find_by(name: "Le Wagon"),
-  organizer: User.find_by(name: "Karim")
+  organizer: User.find_by(name: "Karim"),
+  comment: "Barcelona sucks."
 )
   event2.remote_photo_url = "https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/12/23/10/messi-marcelo.jpg?w968h681"
   event2.save
@@ -29,7 +30,8 @@ event3 = Event.create!(
   state: "organized",
   address: "Calle de Juan de Mariana, 14, 28045 Madrid",
   group: Group.find_by(name: "Le Wagon"),
-  organizer: User.find_by(name: "Carol")
+  organizer: User.find_by(name: "Carol"),
+  comment: "Un caña por favor!"
 )
   event3.remote_photo_url = "https://ep01.epimg.net/elviajero/imagenes/2017/06/05/actualidad/1496661055_237522_1496665028_sumario_normal.jpg"
   event3.save
@@ -59,7 +61,8 @@ event6 = Event.create!(
   state: "organized",
   address: "Calle de Ruiz de Alarcón, 23, 28014 Madrid",
   group: Group.find_by(name: "Le Wagon"),
-  organizer: User.find_by(name: "Herve")
+  organizer: User.find_by(name: "Herve"),
+  comment: "Un peu de culture, svp!"
 )
   event6.remote_photo_url = "https://www.elsoldemexico.com.mx/cultura/arte/48j2v7-museo-del-prado.jpg/alternates/LANDSCAPE_400/museo del prado.jpg"
   event6.save
@@ -79,7 +82,8 @@ event8 = Event.create!(
   state: "organized",
   address: "Calle de Ponzano, 7, 28010 Madrid",
   group: Group.find_by(name: "Girls Night"),
-  organizer: User.find_by(name: "Beatriz")
+  organizer: User.find_by(name: "Beatriz"),
+  comment: "Cheesecake cheesecake cheesecake"
 )
   event8.remote_photo_url = "https://media-cdn.tripadvisor.com/media/photo-s/16/c7/6b/fc/sala.jpg"
   event8.save
@@ -89,7 +93,8 @@ event9 = Event.create!(
   state: "organized",
   address: "Calle de Ponzano, 14, 28010 Madrid",
   group: Group.find_by(name: "Girls Night"),
-  organizer: User.find_by(name: "Fanny")
+  organizer: User.find_by(name: "Fanny"),
+  comment: "Teje Y MANEJEEEE"
 )
   event9.remote_photo_url = "https://media-cdn.tripadvisor.com/media/photo-s/15/9f/88/a6/barra.jpg"
   event9.save
@@ -119,7 +124,8 @@ event12 = Event.create!(
   state: "organized",
   address: "Paris",
   group: Group.find_by(name: "Sisters"),
-  organizer: User.find_by(name: "Laure")
+  organizer: User.find_by(name: "Laure"),
+  comment: "Paris is always a good idea!"
 )
   event12.remote_photo_url = "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/08/07/08/paris.jpg?w968h681"
   event12.save
