@@ -9,6 +9,10 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    timehash = @event.time.gsub('}', "").split(",")
+    hour = timehash[3].split("=>")[1]
+    minute = timehash[4].split("=>")[1]
+    @time = hour + ':' + minute
     @marker = { lat: @event.latitude, lng: @event.longitude }
   end
 
@@ -42,6 +46,7 @@ class EventsController < ApplicationController
 
   def update
     @event.state = "organized" if @event.state == "proposed"
+    @event.organizer = current_user
     @event.update(event_params)
     redirect_to group_event_path(@group, @event)
   end
@@ -67,6 +72,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:name, :state, :address, :photo, event_dates_attributes: [:date])
+    params.require(:event).permit(:name, :state, :address, :photo, :organizer, :time, event_dates_attributes: [:date])
   end
 end
