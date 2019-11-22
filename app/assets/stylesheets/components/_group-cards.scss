@@ -66,6 +66,14 @@ a {
 .main-container {
   max-width: 800px;
 }
+
+.main-container-two {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .group-photos {
   flex-wrap: wrap;
   .photos {
