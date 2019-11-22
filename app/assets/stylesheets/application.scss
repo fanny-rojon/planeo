@@ -28,3 +28,15 @@
   background-position: center;
   background-size: cover;
 }
+
+.not-back {
+  min-height: 110vh;
+  /* The image used */
+  background-image: linear-gradient(rgba(255,255,255, 0.9),rgba(255, 255, 255, 0.9)), asset_url("body-background.jpeg");
+
+  /* Full height */
+  background-repeat: no-repeat;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-size: cover;
+}

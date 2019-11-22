@@ -14,6 +14,7 @@ const newGroupPage = document.getElementById("groups/new")
 const newEventPage = document.getElementById("events/create")
 const showEventPage = document.getElementById("events/show")
 
+
 if (newEventPage) {
   initMapbox();
   mapboxAddressValue();
