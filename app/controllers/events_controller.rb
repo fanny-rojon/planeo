@@ -9,10 +9,14 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    timehash = @event.time.gsub('}', "").split(",")
-    hour = timehash[3].split("=>")[1]
-    minute = timehash[4].split("=>")[1]
-    @time = hour + ':' + minute
+    if @event.time != nil
+      timehash = @event.time.gsub('}', "").split(",")
+      hour = timehash[3].split("=>")[1]
+      minute = timehash[4].split("=>")[1]
+      @time = hour + ':' + minute
+    else
+      @time = "21:00"
+    end
     @marker = { lat: @event.latitude, lng: @event.longitude }
   end
 
