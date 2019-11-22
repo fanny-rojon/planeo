@@ -15,7 +15,6 @@ const newGroupPage = document.getElementById("groups/new")
 const newEventPage = document.getElementById("events/create")
 const editEventPage = document.getElementById("events/edit")
 const showEventPage = document.getElementById("events/show")
-const editEventPage = document.getElementById("events/edit")
 
 
 if (newEventPage) {
@@ -28,6 +27,7 @@ if (newEventPage) {
 if (editEventPage) {
   initMapbox();
   mapboxAddressValue();
+  setEventPreview();
 }
 
 if (showEventPage) {
@@ -42,6 +42,3 @@ if (newGroupPage) {
   setGroupPreview();
 }
 
-if (editEventPage) {
-  setEventPreview();
-}
