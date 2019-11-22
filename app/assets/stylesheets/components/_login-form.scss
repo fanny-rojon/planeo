@@ -38,12 +38,16 @@
   }
 }
 
+.photo-icon {
+  font-size: 45px;
+}
+
 .form-control-file {
   display: none;
 }
 
 .file .optional {
-  border: dashed 3px #F25004;
+  border: solid 5px #F25004;
   background-position: center;
   background-size: cover;
   margin: 0 !important;

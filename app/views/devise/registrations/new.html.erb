@@ -7,7 +7,7 @@
     <div class="box-w mt-5">
       <div class="form-inputs">
         <div class="text-center">
-          <%= f.input :photo, label: "Add Photo +" %>
+          <%= f.input :photo, label: ('<i class="fas fa-camera photo-icon"></i>').html_safe %>
           <%= f.input :photo_cache, as: :hidden %>
         </div>
         <%= hidden_field_tag :code, params[:code] %>
@@ -35,4 +35,5 @@
       <div class="text-center bottom-text pb-2 pt-2">
        <p>Already Have An Account? <strong><%= link_to "Log In", new_user_session_path, class: "text-center bottom-text" %></strong></p>
     </div>
+
 

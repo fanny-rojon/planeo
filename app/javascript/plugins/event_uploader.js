@@ -11,8 +11,8 @@ const readURL = (input, placeholder) => {
   }
 }
 
-const setUserPreview = () => {
-  const userPhoto = document.querySelector("#user_photo");
+const setEventPreview = () => {
+  const userPhoto = document.querySelector("#event_photo");
   const placeholder = document.querySelector(".file .optional")
 
   userPhoto.addEventListener("change", (event) => {
@@ -20,4 +20,4 @@ const setUserPreview = () => {
   });
 }
 
-export { setUserPreview };
+export { setEventPreview };

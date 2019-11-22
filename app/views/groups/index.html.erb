@@ -8,7 +8,10 @@
     <%= link_to group_path(group.id) do %>
     <div class="col-12">
       <div class="custom-group-card d-flex mt-4 m-2">
-        <img src="<%= group.photo %>">
+        <div class="imagen pr-3">
+            <img src="<%= group.photo %>">
+            <div class="text-center notification"><p><%= group.events.count { |event| event.state == "organized"} %></p></div>
+          </div>
           <div class="custom-group-card-info m-0">
             <h2 class="m-0 mb-1"><%= group.name %></h2>
             <p class="m-0"><% group.users.sample(4).each do |user| %>

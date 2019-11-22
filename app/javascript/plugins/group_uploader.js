@@ -11,7 +11,7 @@ const readURL = (input, placeholder) => {
   }
 }
 
-const setPreview = () => {
+const setGroupPreview = () => {
   const userPhoto = document.querySelector("#group_photo");
   const placeholder = document.querySelector(".file .optional")
 
@@ -20,4 +20,4 @@ const setPreview = () => {
   });
 }
 
-export { setPreview };
+export { setGroupPreview };

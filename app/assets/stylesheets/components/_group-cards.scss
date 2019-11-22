@@ -1,11 +1,11 @@
 .custom-group-card {
   overflow: hidden;
   background: white;
-  position: relative;
   border-radius: 3px;
   height: 100px;
+  padding: 1rem;
   align-items: center;
-  transition: all 1s ease;
+  transition: box-shadow 1s ease;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
   &:hover {
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
@@ -18,7 +18,7 @@
     font-size: 0.7rem;
     font-family: 'Roboto', sans-serif;
     font-weight: lighter;
-    opacity: .6;
+    color: rgb(100, 100, 100);
     text-indent: 0.03em;
     text-decoration: none;
   }
@@ -30,6 +30,7 @@
     text-decoration: none;
   }
   img {
+    position: relative;
     margin: 0 3%;
     height: 80px;
     width: 80px;
@@ -43,6 +44,23 @@ a {
     color: inherit;
   }
 
+  .imagen {
+    position: relative;
+  }
+.notification {
+  box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.6);
+  z-index: 1;
+  top: 1px;
+  right: 16px;
+  position: absolute;
+  p {
+    color: white;
+  }
+  padding: 0.5px 3.5px;
+  border-radius: 50%;
+  margin: 0;
+  background-color: #FB4B4E;
+}
 }
 
 .main-container {

@@ -44,3 +44,15 @@ ul {
 .nav-link {
   letter-spacing: 0.15rem;
 }
+
+.dropdown-menu {
+  a {
+    color: white !important;
+    &:hover {
+      color: #F25004 !important;
+    }
+  }
+  background-color: #F25004;
+}
+
+
