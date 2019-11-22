@@ -34,6 +34,9 @@
       <div>
         <%= f.input :time, label: "At what time?", placeholder: "11:00am", as: :time %>
       </div>
+      <div>
+        <%= f.input :comment, label: "Any comment?", placeholder: "e.g. Don't be late!", as: :text %>
+      </div>
     </div>
     <div class="submit text-center">
       <%= f.button :submit, class: "primary-button padding-right-left"%>
