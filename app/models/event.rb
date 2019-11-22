@@ -12,7 +12,7 @@ class Event < ApplicationRecord
   validates :state, inclusion: { in: ["proposed", "organized", "confirmed", "past"] }
 
   after_validation :geocode, if: :will_save_change_to_address?
-  after_update :geocode, if: :will_save_change_to_address?
+  after_update :geocode
 
   accepts_nested_attributes_for :event_dates
 
