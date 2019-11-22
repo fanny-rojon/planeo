@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_group, only: [:create, :edit, :update]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :get_action_params, only: [:edit, :create]
 
   def new
     @event = Event.new
@@ -36,11 +37,11 @@ class EventsController < ApplicationController
   end
 
   def edit
-    # authorize @event
-    @marker = { lat: 40.398471, lng: -3.686408 }
+    @event.latitude != nil ? @marker = { lat: @event.latitude, lng: @event.longitude } : @marker = { lat: 40.398471, lng: -3.686408 }
   end
 
   def update
+    @event.state = "organized" if @event.state == "proposed"
     @event.update(event_params)
     redirect_to group_event_path(@group, @event)
   end
@@ -52,6 +53,10 @@ class EventsController < ApplicationController
   end
 
   private
+
+  def get_action_params
+    @action = params[:action]
+  end
 
   def set_event
     @event = Event.find(params[:id])

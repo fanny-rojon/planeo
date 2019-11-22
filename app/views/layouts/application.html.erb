@@ -10,7 +10,7 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_pack_tag 'application', media: 'all' %>
   </head>
-  <body class="back" id="<%= params[:controller] %>/<%= params[:action] %>">
+  <body class="<% if @homepage %> back <% else %> not-back <% end %>" id="<%= params[:controller] %>/<%= params[:action] %>">
     <%= if @navbar_hidden
           render 'shared/home-nav'
         else

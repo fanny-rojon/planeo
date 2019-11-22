@@ -4,11 +4,11 @@
   position: relative;
   border-radius: 3px;
   height: 100px;
-
   align-items: center;
   transition: all 1s ease;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
   &:hover {
-    box-shadow: 1px 1px 10px rgb(78, 69, 69);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
   }
   &-info {
     padding: 6% 0;
