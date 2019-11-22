@@ -30,13 +30,6 @@
   position: relative;
 }
 
-// .card-event-infos .card-event-user {
-//   position: absolute;
-//   right: 16px;
-//   top: -20px;
-//   width: 40px;
-// }
-
 .buttons {
   margin: 20px 0px;
 }
@@ -46,8 +39,24 @@
   padding: 40px 0;
   text-align: center;
 }
-.rsvp {
-  background-color: white;
-  padding: 40px 0;
-  text-align: center;
+
+.event-time {
+  background-color: #F25004;
+  box-shadow: 1px 1px 10px (black, 1);
+  border-radius: 5px;
+  padding: 0.5rem;
+  p {
+    margin: 0;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+  }
+}
+
+.asd {
+  flex-direction: column;
+  p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: lighter;
+  }
 }
