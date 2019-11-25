@@ -47,7 +47,7 @@ a {
   .imagen {
     position: relative;
   }
-.notification {
+.notificationa {
   box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.6);
   z-index: 1;
   top: 1px;
@@ -55,8 +55,9 @@ a {
   position: absolute;
   p {
     color: white;
+    font-weight: bold;
   }
-  padding: 0.5px 3.5px;
+  padding: 0.7px 4px;
   border-radius: 50%;
   margin: 0;
   background-color: #FB4B4E;

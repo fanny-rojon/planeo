@@ -1,4 +1,6 @@
+<%= content_for(:title, @group.name) %>
 <%= render "shared/modal" %>
+
 <div class="main-container-two">
   <div class="text-center pt-2 border-bottom pb-2 group-photos d-flex justify-content-center w-100">
     <% @group.users.first(10).each do |user| %>
@@ -15,7 +17,7 @@
   <div class="row">
       <% @myevents.each do |event| %>
       <div class="col-xl-6 col-12">
-        <%= link_to group_event_path(event.group, event) do %>
+        <%= link_to event_path(event) do %>
           <div class="custom-card d-flex m-2 align-items-center">
             <% unless event.photo.identifier.nil? %>
             <img src="<%= event.photo %>">
@@ -26,10 +28,10 @@
               <div class="custom-card-info m-0">
             <% end %>
                 <h3 class="m-0 pl-3"><%= event.name %></h3>
-                <% if event.comment.nil? || event.comment.length > 44 || event.comment == "" %>
+                <% if event.description.nil? || event.description.length > 44 || event.description == "" %>
                   <p class="m-0 pl-3"><%= event.address %></p>
                 <% else %>
-                  <p class="m-0 pl-3"><%= event.comment %></p>
+                  <p class="m-0 pl-3"><%= event.description %></p>
                 <% end %>
               </div>
               <img src="<%= event.organizer.photo %>" alt="" class="organizer">
@@ -46,7 +48,7 @@
   <div class="row">
       <% @organizedevents.each do |event| %>
       <div class="col-xl-6 col-12">
-        <%= link_to group_event_path(event.group, event) do %>
+        <%= link_to event_path(event) do %>
           <div class="custom-card d-flex m-2 align-items-center">
             <% unless event.photo.identifier.nil? %>
             <img src="<%= event.photo %>">
@@ -57,10 +59,10 @@
               <div class="custom-card-info m-0">
             <% end %>
                 <h3 class="m-0 pl-3"><%= event.name %></h3>
-                <% if event.comment.nil? || event.comment == "" %>
+                <% if event.description.nil? || event.description == "" %>
                   <p class="m-0 pl-3"><%= event.address %></p>
                 <% else %>
-                  <p class="m-0 pl-3"><%= event.comment %></p>
+                  <p class="m-0 pl-3"><%= event.description %></p>
                 <% end %>
               </div>
               <img src="<%= event.organizer.photo %>" alt="" class="organizer">
@@ -82,7 +84,7 @@
   <div class="row">
       <% @proposedevents.each do |event| %>
           <div class="col-lg-6 col-12">
-            <%= link_to edit_group_event_path(event.group, event) do %>
+            <%= link_to edit_event_path(event) do %>
               <div class="proposed-card d-flex m-1 align-items-center">
                   <div class="proposed-card-info m-0">
                     <h3 class="m-0 pl-3"><%= event.name %></h3>
@@ -103,7 +105,9 @@
   <div class="text-right">
   <% if @group.administrator == current_user %>
     <div data-toggle="modal" data-target="#exampleModal">
-      <i class="fas fa-trash text-white" style="font-size: 2em;"></i>
+      <div class="text-center text-danger">
+        <p>Delete Group</p>
+      </div>
     </div>
   <% end %>
   </div>

@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_11_25_095348) do
+=======
+ActiveRecord::Schema.define(version: 2019_11_25_104659) do
+>>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.string "content"
+    t.bigint "user_id"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_comments_on_event_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "event_dates", force: :cascade do |t|
     t.date "date"
@@ -31,12 +45,12 @@ ActiveRecord::Schema.define(version: 2019_11_25_095348) do
     t.float "longitude"
     t.string "photo"
     t.date "deadline"
-    t.string "comment"
     t.string "time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "group_id"
     t.bigint "organizer_id"
+    t.string "description"
     t.index ["group_id"], name: "index_events_on_group_id"
     t.index ["organizer_id"], name: "index_events_on_organizer_id"
   end
@@ -74,6 +88,7 @@ ActiveRecord::Schema.define(version: 2019_11_25_095348) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+<<<<<<< HEAD
   create_table "votes", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "event_date_id"
@@ -83,6 +98,10 @@ ActiveRecord::Schema.define(version: 2019_11_25_095348) do
     t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
+=======
+  add_foreign_key "comments", "events"
+  add_foreign_key "comments", "users"
+>>>>>>> master
   add_foreign_key "event_dates", "events"
   add_foreign_key "events", "groups"
   add_foreign_key "events", "users", column: "organizer_id"

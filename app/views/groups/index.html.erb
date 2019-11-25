@@ -1,3 +1,5 @@
+<%= content_for(:title, 'Your Groups') %>
+
 <div class="container text-center mt-4 head">
   <h2 class="mt-3">MY GROUPS</h2>
 </div>
@@ -10,7 +12,7 @@
       <div class="custom-group-card d-flex mt-4 m-2">
         <div class="imagen pr-3">
             <img src="<%= group.photo %>">
-            <div class="text-center notification"><p><%= group.events.count { |event| event.state == "organized"} %></p></div>
+            <div class="text-center notificationa"><p><%= group.events.count { |event| event.state == "organized"} %></p></div>
           </div>
           <div class="custom-group-card-info m-0">
             <h2 class="m-0 mb-1"><%= group.name %></h2>

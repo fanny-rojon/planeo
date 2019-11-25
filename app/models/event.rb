@@ -5,11 +5,12 @@ class Event < ApplicationRecord
   belongs_to :group
   belongs_to :organizer, class_name: "User"
 
+  has_many :comments, dependent: :destroy
   has_many :usergroups, through: :group
   has_many :event_dates, dependent: :destroy, inverse_of: :event
 
   validates :name, length: { in: 4..24 }
-  validates :comment, length: { maximum: 44 }
+  validates :description, length: { maximum: 44 }
 
   validates :state, inclusion: { in: ["proposed", "organized", "confirmed", "past"] }
 
