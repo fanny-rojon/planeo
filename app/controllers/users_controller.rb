@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
-    @myevents = Event.organized_by(current_user)
+    myvotes = Vote.all.select { |vote| vote.user == current_user }
+    @myevents = myvotes.map { |vote| vote.event_date.event }.uniq
   end
 
   def edit
