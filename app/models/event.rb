@@ -5,6 +5,7 @@ class Event < ApplicationRecord
   belongs_to :group
   belongs_to :organizer, class_name: "User"
 
+  has_many :comments, dependent: :destroy
   has_many :usergroups, through: :group
   has_many :event_dates, dependent: :destroy, inverse_of: :event
 
