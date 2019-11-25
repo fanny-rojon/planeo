@@ -1,14 +1,16 @@
 require_relative './seeds/user_seeds'
 require_relative './seeds/group_seeds'
 require_relative './seeds/event_seeds'
+require_relative './seeds/comment_seeds'
 
 puts "Assigning users to groups..."
 
 group1 = Group.find_by(name: "Le Wagon")
-group2 = Group.find_by(name: "Sisters")
-group3 = Group.find_by(name: "Girls Night")
+group2 = Group.find_by(name: "Family")
+group3 = Group.find_by(name: "Friends")
 group4 = Group.find_by(name: "Call of Duty")
 group5 = Group.find_by(name: "Female Coders")
+group6 = Group.find_by(name: "Football")
 
 # Le Wagon Users
 fanny = User.find_by(name: "Fanny")
@@ -27,20 +29,22 @@ gonzalo = User.find_by(name: "Gonzalo")
 martin = User.find_by(name: "Martin")
 ricardo = User.find_by(name: "Ricardo")
 
-# Sisters Users
+# Family Users
 caroline = User.find_by(name: "Caroline")
 laure = User.find_by(name: "Laure")
 delphine = User.find_by(name: "Delphine")
 celine = User.find_by(name: "Celine")
 
-# Girls Night Users
+# Friends Users
 bea = User.find_by(name: "Bea")
 beatriz = User.find_by(name: "Beatriz")
 isa = User.find_by(name: "Isa")
 violetta = User.find_by(name: "Violetta")
 anita = User.find_by(name: "Anita")
 
-group1.users << [felipe, karim, bitna, fanny, carol, ana, gabriela, belen, maja, herve, niklas, javier, gonzalo, martin, ricardo]
+# Felipe is not in Le Wagon - adding him at Demo Day
+
+group1.users << [karim, bitna, fanny, carol, ana, gabriela, belen, maja, herve, niklas, javier, gonzalo, martin, ricardo]
 
 group2.users << [caroline, laure, delphine, celine, fanny]
 
@@ -48,7 +52,9 @@ group3.users << [beatriz, isa, violetta, bea, anita, fanny]
 
 group4.users << [karim, felipe, niklas, herve, javier, gonzalo, ricardo, martin]
 
-group5.users << [bitna, fanny, carol, ana, gabriela, belen, maja]
+group5.users << [bitna, carol, ana, gabriela, belen, maja]
+
+group6.users << [karim, felipe, niklas, herve, javier]
 
 puts "Seeds done!!!"
 

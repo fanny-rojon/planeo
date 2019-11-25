@@ -134,7 +134,7 @@ caroline = User.new(
   email: "caroline@lewagon.com",
   password: "123456",
 )
-  caroline.remote_photo_url = "https://scontent-mad1-1.xx.fbcdn.net/v/t1.0-9/228112_1048522785369_7269_n.jpg?_nc_cat=105&_nc_oc=AQn1QE0bE-wseQlPY8oaiDcw6G-Y3BC-vK39gquBG8aUr32bLawW3eOSSIepQImyn7w&_nc_ht=scontent-mad1-1.xx&oh=dbbb178689b95c8ab6b658694b4ed8d2&oe=5E558519"
+  caroline.remote_photo_url = "https://res.cloudinary.com/dunhv8wwe/image/upload/v1574678995/caroline_okkzzi.jpg"
   caroline.save
 
 laure = User.new(
@@ -142,7 +142,7 @@ laure = User.new(
   email: "laure@lewagon.com",
   password: "123456",
 )
-  laure.remote_photo_url = "https://scontent-mad1-1.xx.fbcdn.net/v/t31.0-8/s960x960/1502743_250804815085957_1536499123_o.jpg?_nc_cat=111&_nc_oc=AQmalfPJgOKWsbID8StGBgxYb7PXR34o_9KBBSYzoOFm88ErtvjlmoijYTgNFj6r2S4&_nc_ht=scontent-mad1-1.xx&oh=98a16993b8f866258c2387c970ca9bda&oe=5E821037"
+  laure.remote_photo_url = "https://res.cloudinary.com/dunhv8wwe/image/upload/v1574678996/laure_qwlmvy.jpg"
   laure.save
 
 delphine = User.new(
@@ -150,7 +150,7 @@ delphine = User.new(
   email: "delphine@lewagon.com",
   password: "123456",
 )
-  delphine.remote_photo_url = "https://scontent-mad1-1.xx.fbcdn.net/v/t1.0-9/224337_1048528345508_6306_n.jpg?_nc_cat=110&_nc_oc=AQm-E5aksa9DVgNgTfiF0v8Bwel8CAvp4MHW_F5s9rubiGJHNnWothtr5bLhcDkRF8A&_nc_ht=scontent-mad1-1.xx&oh=3b1777879813cdd277d29ea0b86375f7&oe=5E898A04"
+  delphine.remote_photo_url = "https://res.cloudinary.com/dunhv8wwe/image/upload/v1574678995/delphine_qgqvjo.jpg"
   delphine.save
 
 celine = User.new(
@@ -158,7 +158,7 @@ celine = User.new(
   email: "celine@lewagon.com",
   password: "123456",
 )
-  celine.remote_photo_url = "https://scontent-mad1-1.xx.fbcdn.net/v/t1.0-0/p640x640/60355863_581805952342379_455130528941604864_o.jpg?_nc_cat=107&_nc_oc=AQkQoZtVHRoC64l29rrbrqsFfbyfL50rDQs0C8Aez2VVmBYTjHW17wE8_Y4TcZKP4Hs&_nc_ht=scontent-mad1-1.xx&oh=2326f997e28b911702a5fb0aa807cd5b&oe=5E88D6E2"
+  celine.remote_photo_url = "https://res.cloudinary.com/dunhv8wwe/image/upload/v1574678995/celine_jswohn.jpg"
   celine.save
 
 # Girls Night Users
@@ -168,7 +168,7 @@ violetta = User.new(
   email: "violetta@lewagon.com",
   password: "123456",
 )
-  violetta.remote_photo_url = "https://pps.whatsapp.net/v/t61.24694-24/68753985_2390818014369503_2815862301075177472_n.jpg?oe=5DD90B0A&oh=1a32ee27e855d1345c32f9262f791b28&t=l&u=34605027047@c.us&i=1568571052"
+  violetta.remote_photo_url = "https://res.cloudinary.com/dunhv8wwe/image/upload/v1574678996/violetta_bncd4y.jpg"
   violetta.save
 
 beatriz = User.new(
@@ -176,7 +176,7 @@ beatriz = User.new(
   email: "beatriz@lewagon.com",
   password: "123456",
 )
-  beatriz.remote_photo_url = "https://pps.whatsapp.net/v/t61.24694-24/62553972_873263513047805_2293700767300714496_n.jpg?oe=5DD90C2C&oh=78d7b58ed2c0685fef72ac8a3a7c381d&t=l&u=34646138005@c.us&i=1563273692"
+  beatriz.remote_photo_url = "https://res.cloudinary.com/dunhv8wwe/image/upload/v1574678995/beatriz_zx8f2z.jpg"
   beatriz.save
 
 isa = User.new(
@@ -184,7 +184,7 @@ isa = User.new(
   email: "isa@lewagon.com",
   password: "123456",
 )
-  isa.remote_photo_url = "https://pps.whatsapp.net/v/t61.24694-24/70162519_728463174335874_7986757096672853308_n.jpg?oe=5DD90C28&oh=57de67e6a27bfc2fb1a1779a38fac68b&t=l&u=34676053544@c.us&i=1573549882"
+  isa.remote_photo_url = "https://res.cloudinary.com/dunhv8wwe/image/upload/v1574680342/isa_square_ximpqu.jpg"
   isa.save
 
 bea = User.new(
@@ -192,7 +192,7 @@ bea = User.new(
   email: "bea@lewagon.com",
   password: "123456",
 )
-  bea.remote_photo_url = "https://pps.whatsapp.net/v/t61.24694-24/55957536_2188272121264933_6299094371702669312_n.jpg?oe=5DDBEBDF&oh=616cb45c7d50777474b0d6ecb39faa16&t=l&u=34684145999@c.us&i=1551563356"
+  bea.remote_photo_url = "https://res.cloudinary.com/dunhv8wwe/image/upload/v1574678995/bea_c6grvl.jpg"
   bea.save
 
 anita = User.new(
@@ -200,7 +200,7 @@ anita = User.new(
   email: "anita@lewagon.com",
   password: "123456",
 )
-  anita.remote_photo_url = "https://pps.whatsapp.net/v/t61.24694-24/64219745_387115768821815_7278587961640222720_n.jpg?oe=5DD90CA7&oh=c98da6edaf882fa210dd1a0d50347da6&t=l&u=34619175370@c.us&i=1563096055"
+  anita.remote_photo_url = "https://res.cloudinary.com/dunhv8wwe/image/upload/v1574678995/anita_y8dggb.jpg"
   anita.save
 
 puts "Users created."
