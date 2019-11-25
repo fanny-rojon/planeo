@@ -20,7 +20,7 @@
   <div class="notification">
   <img src='<%= @event.organizer.photo %>' class="avatar-large" />
   <div class="notification-content">
-    <p><strong>Organizer</strong></p>
+    <p><strong>Organizer</strong> (<%= @event.organizer.name %>)</p>
     <p><%= @event.description %></p>
   </div>
 </div>
@@ -78,16 +78,16 @@
 
 
 
-  <div class="buttons">
+  <div class="buttons pt-4">
     <% if @event.organizer == current_user %>
-      <%= link_to "Edit", edit_event_path(@event), class: "secondary-button" %>
-      <%= link_to "Delete", event_path(@event), method: :delete, data: { confirm: "Are you sure?" }, class: "secondary-button" %>
+      <%= link_to "Edit", edit_event_path(@event), class: "btn btn-primary" %>
+      <%= link_to "Delete", event_path(@event), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
     <% end %>
   </div>
 </div>
 
 <%= link_to "#" do %>
-<div class="text-center w-100 primary-button w-100 text-white" style="position: fixed; bottom: -18px; z-index: 1234; border-radius: 0;">
+<div class="text-center w-100 primary-button text-white" style="position: fixed; bottom: -18px; z-index: 1234; border-radius: 0;">
   <p>IM GOING!</p>
 </div>
 <% end %>
