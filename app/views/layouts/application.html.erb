@@ -3,9 +3,14 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Planeo - Plan Less, Go Out More</title>
+    <title><%= meta_title %></title>
     <%= favicon_link_tag asset_path('favicon_small.png') %>
     <%= csrf_meta_tags %>
+    <meta property="og:title" content="<%= meta_title %>" />
+    <meta property="og:description" content="Planning with friends, made easy." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:image" content="<%= cl_image_path('body-background_pbh2ge', width: 1200, crop: :fit) %>" />
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_pack_tag 'application', media: 'all' %>
