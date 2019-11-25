@@ -6,7 +6,7 @@
 <div class="row">
     <% @myevents.each do |event| %>
     <div class="col-xl-6 col-12">
-      <%= link_to group_events_path(event.group, event) do %>
+      <%= link_to event_path(event) do %>
         <div class="custom-card d-flex m-2 align-items-center">
           <% unless event.photo.identifier.nil? %>
           <img src="<%= event.photo %>">
@@ -17,7 +17,7 @@
               <div class="custom-card-info m-0">
             <% end %>
                 <h3 class="m-0 pl-3"><%= event.name %></h3>
-                <% if event.description.nil? || event.description.length < 44 %>
+                <% if event.description.nil? || event.description.length > 44 || event.description == "" %>
                   <p class="m-0 pl-3"><%= event.address %></p>
                 <% else %>
                   <p class="m-0 pl-3"><%= event.description %></p>
