@@ -9,20 +9,21 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    if @event.time != nil
-      timehash = @event.time.gsub('}', "").split(",")
-      hour = timehash[3].split("=>")[1]
-      minute = timehash[4].split("=>")[1]
-      @time = hour + ':' + minute
-    else
-      @time = "21:00"
-    end
     @marker = { lat: @event.latitude, lng: @event.longitude }
   end
 
   def create
     @event = Event.new(event_params)
     @event.group = @group
+    if @event.time != nil
+      timehash = @event.time.gsub('}', "").split(",")
+      hour = timehash[3].split("=>")[1]
+      minute = timehash[4].split("=>")[1]
+      time = hour + ':' + minute
+    else
+      time = "21:00"
+    end
+    @event.time = time
     @marker = { lat: 40.398471, lng: -3.686408 }
     if params[:commit] == "Propose"
       @event.state = "proposed"
@@ -76,6 +77,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:name, :state, :address, :photo, :organizer, :time, event_dates_attributes: [:date])
+    params.require(:event).permit(:name, :state, :address, :photo, :organizer, :time, :comment, event_dates_attributes: [:date])
   end
 end

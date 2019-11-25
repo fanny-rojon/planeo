@@ -23,11 +23,16 @@
     <div class="text-center w-50">
       <div class="d-flex asd align-items-center justify-content-center">
         <div class="event-time mt-5 mb-4">
-          <p class="p-1"><%= @time %></p>
+          <p class="p-1"><%= @event.time %></p>
         </div>
           <p><%= @event.address %></p>
         </div>
       </div>
+  </div>
+  <div class="dates">
+    <% @event.event_dates.each do |ed| %>
+      <p><%= ed.date %></p>
+    <% end %>
   </div>
 
 
@@ -38,6 +43,7 @@
       <%= link_to "Delete", group_event_path(@event.group, @event), method: :delete, data: { confirm: "Are you sure?" }, class: "secondary-button" %>
     <% end %>
   </div>
+  <%= link_to "Back to groups", group_path(@event.group), class: "secondary-button", style: "padding: 10px" %>
 </div>
 
 <%= link_to "#" do %>

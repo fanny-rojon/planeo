@@ -15,7 +15,8 @@ const initMapboxNoSearch = () => {
     const marker = JSON.parse(mapElement.dataset.marker);
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v10'
+      style: 'mapbox://styles/mapbox/streets-v10',
+      interactive: false
     });
 
     const geolocate = new MapboxGeocoder({

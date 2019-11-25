@@ -9,6 +9,8 @@ class Event < ApplicationRecord
   has_many :event_dates, dependent: :destroy, inverse_of: :event
 
   validates :name, length: { in: 4..24 }
+  validates :comment, length: { maximum: 44 }
+
   validates :state, inclusion: { in: ["proposed", "organized", "confirmed", "past"] }
 
   after_validation :geocode, if: :will_save_change_to_address?
