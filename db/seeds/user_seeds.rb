@@ -168,11 +168,7 @@ violetta = User.new(
   email: "violetta@lewagon.com",
   password: "123456",
 )
-<<<<<<< HEAD
-  violetta.remote_photo_url = "https://avatars0.githubusercontent.com/u/14589?v=4"
-=======
   violetta.remote_photo_url = "https://res.cloudinary.com/dunhv8wwe/image/upload/v1574678996/violetta_bncd4y.jpg"
->>>>>>> master
   violetta.save
 
 beatriz = User.new(
@@ -180,11 +176,7 @@ beatriz = User.new(
   email: "beatriz@lewagon.com",
   password: "123456",
 )
-<<<<<<< HEAD
-  beatriz.remote_photo_url = "https://avatars0.githubusercontent.com/u/14589?v=4"
-=======
   beatriz.remote_photo_url = "https://res.cloudinary.com/dunhv8wwe/image/upload/v1574678995/beatriz_zx8f2z.jpg"
->>>>>>> master
   beatriz.save
 
 isa = User.new(
@@ -192,11 +184,7 @@ isa = User.new(
   email: "isa@lewagon.com",
   password: "123456",
 )
-<<<<<<< HEAD
-  isa.remote_photo_url = "https://avatars0.githubusercontent.com/u/14589?v=4"
-=======
   isa.remote_photo_url = "https://res.cloudinary.com/dunhv8wwe/image/upload/v1574680342/isa_square_ximpqu.jpg"
->>>>>>> master
   isa.save
 
 bea = User.new(
@@ -204,11 +192,7 @@ bea = User.new(
   email: "bea@lewagon.com",
   password: "123456",
 )
-<<<<<<< HEAD
-  bea.remote_photo_url = "https://avatars0.githubusercontent.com/u/14589?v=4"
-=======
   bea.remote_photo_url = "https://res.cloudinary.com/dunhv8wwe/image/upload/v1574678995/bea_c6grvl.jpg"
->>>>>>> master
   bea.save
 
 anita = User.new(
@@ -216,11 +200,7 @@ anita = User.new(
   email: "anita@lewagon.com",
   password: "123456",
 )
-<<<<<<< HEAD
-  anita.remote_photo_url = "https://avatars0.githubusercontent.com/u/14589?v=4"
-=======
   anita.remote_photo_url = "https://res.cloudinary.com/dunhv8wwe/image/upload/v1574678995/anita_y8dggb.jpg"
->>>>>>> master
   anita.save
 
 puts "Users created."

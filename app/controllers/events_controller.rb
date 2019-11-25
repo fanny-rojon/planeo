@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_group, only: [:create, :edit, :update]
+  before_action :set_group, only: [:create]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :get_action_params, only: [:edit, :create]
 
@@ -46,7 +46,7 @@ class EventsController < ApplicationController
     end
   end
 
-  def edit()
+  def edit
     @event.latitude != nil ? @marker = { lat: @event.latitude, lng: @event.longitude } : @marker = { lat: 40.398471, lng: -3.686408 }
   end
 
@@ -55,7 +55,7 @@ class EventsController < ApplicationController
     @event.organizer = current_user
     params[:address] = @event.address if params[:address] == nil
     @event.update(event_params)
-    redirect_to group_event_path(@group, @event)
+    redirect_to event_path(@event)
   end
 
   def destroy
