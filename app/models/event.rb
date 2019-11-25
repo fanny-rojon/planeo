@@ -15,6 +15,7 @@ class Event < ApplicationRecord
   after_update :geocode
 
   accepts_nested_attributes_for :event_dates
+  has_many :comments, dependent: :destroy
 
   scope :organized, -> { where(state: :organized) }
   scope :not_organized, -> { where.not(state: :organized) }
