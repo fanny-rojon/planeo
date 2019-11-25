@@ -1,4 +1,6 @@
+<%= content_for(:title, @group.name) %>
 <%= render "shared/modal" %>
+
 <div class="main-container-two">
   <div class="text-center pt-2 border-bottom pb-2 group-photos d-flex justify-content-center w-100">
     <% @group.users.first(10).each do |user| %>
