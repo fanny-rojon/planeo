@@ -77,6 +77,40 @@
             <%= link_to "Be The First to Comment!", new_event_comment_path(@event), class: "pt-5 pb-0" %>
       <% end %>
 
+<div class="voters">
+  <table id="body-table" style="width:100%">
+  <tr>
+    <th></th>
+    <% @event.event_dates.each do |event_date| %>
+      <th><h5><%= Date::ABBR_MONTHNAMES[event_date.date.month] %></h5><h3><%= event_date.date.day  %></h3><p><%= Date::ABBR_DAYNAMES[event_date.date.wday] %></p></th>
+    <% end %>
+  </tr>
+  <tr id="current_user_row">
+    <td><img src="<%= current_user.photo %>" class="avatar photos" alt=""> <%= current_user.name %></td>
+    <% @event.event_dates.each do |event_date| %>
+      <td id="vote_button_<%= event_date.id %>"><%= render 'votes/vote_button', event_date: event_date %></td>
+    <% end %>
+  </tr>
+  <% @event.group.users.reject {|u| u == current_user }.each_with_index do |user, index| %>
+  <tr class="<%= index.even? ? "grey" : "white" %>">
+    <td class="user_photo_name"><img src="<%= user.photo %>" class="avatar photos" alt=""> <%= user.name %></td>
+    <% @event.event_dates.each do |event_date| %>
+      <% if Vote.find_by(user: user, event_date: event_date) %>
+        <td><i class="fas fa-check-circle text-warning"></i></td>
+      <% else %>
+        <td><i class="fas fa-check-circle" style="color: #dedede"></i></td>
+      <% end %>
+    <% end %>
+  </tr>
+  <% end %>
+  <tr class="count">
+    <td>Attendants</td>
+    <% @event.event_dates.each do |event_date| %>
+      <td><%= event_date.votes.count %></td>
+    <% end %>
+  </tr>
+</table>
+</div>
 
 
   <div class="buttons pt-4">
@@ -86,10 +120,3 @@
     <% end %>
   </div>
 </div>
-
-<%= link_to "#" do %>
-<div class="text-center w-100 primary-button text-white" style="position: fixed; bottom: -18px; z-index: 1234; border-radius: 0;">
-  <p>IM GOING!</p>
-</div>
-<% end %>
-

@@ -1,0 +1,3 @@
+var wrapper = document.getElementById('vote_button_<%= @event_date.id %>');
+
+wrapper.innerHTML = "<%= j render('vote_button', event_date: @event_date) %>";

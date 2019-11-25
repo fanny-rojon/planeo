@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 2019_11_25_095348) do
+=======
 ActiveRecord::Schema.define(version: 2019_11_25_104659) do
+>>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,12 +88,26 @@ ActiveRecord::Schema.define(version: 2019_11_25_104659) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+<<<<<<< HEAD
+  create_table "votes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "event_date_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_date_id"], name: "index_votes_on_event_date_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
+  end
+
+=======
   add_foreign_key "comments", "events"
   add_foreign_key "comments", "users"
+>>>>>>> master
   add_foreign_key "event_dates", "events"
   add_foreign_key "events", "groups"
   add_foreign_key "events", "users", column: "organizer_id"
   add_foreign_key "groups", "users", column: "administrator_id"
   add_foreign_key "usergroups", "groups"
   add_foreign_key "usergroups", "users"
+  add_foreign_key "votes", "event_dates"
+  add_foreign_key "votes", "users"
 end

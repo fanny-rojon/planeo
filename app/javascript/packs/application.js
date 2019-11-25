@@ -3,6 +3,7 @@ import "../plugins/flatpickr"
 import 'mapbox-gl/dist/mapbox-gl.css';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 
+import { disableCheckBox } from '../plugins/votingcheckbox';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initMapboxNoSearch } from '../plugins/init_mapbox_nosearch';
 import { mapboxAddressValue } from '../plugins/mapbox_address_value';
