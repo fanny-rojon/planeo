@@ -1,4 +1,4 @@
-<%= simple_form_for [@group, @event] do |f| %>
+<%= simple_form_for [@event] do |f| %>
   <div class="box-w mt-3">
     <div class="form-inputs">
         <div class="text-center mt-3 mb-3">
@@ -43,6 +43,6 @@
     <% end %>
     </div>
     <div class="text-center mt-3">
-      <%= link_to "Go Back", group_path(@group), class: "secondary-button" %>
+      <%= link_to "Go Back", group_path(@event.group), class: "secondary-button" %>
     </div>
   </div>
