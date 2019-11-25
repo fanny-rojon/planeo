@@ -105,7 +105,9 @@
   <div class="text-right">
   <% if @group.administrator == current_user %>
     <div data-toggle="modal" data-target="#exampleModal">
-      <i class="fas fa-trash text-white" style="font-size: 2em;"></i>
+      <div class="text-center text-danger">
+        <p>Delete Group</p>
+      </div>
     </div>
   <% end %>
   </div>
