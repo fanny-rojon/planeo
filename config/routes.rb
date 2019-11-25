@@ -4,8 +4,11 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :users, only: [:show, :edit, :update, :destroy]
   resources :groups do
-    resources :events, except: :index
+    resources :events, only: [:new, :create]
   end
+  resources :events, only: [:show, :edit, :destroy, :update] do
+      resources :comments, only: [:new, :create]
+    end
   get '/invites/:code', to: 'invitations#register', as: :invite
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
