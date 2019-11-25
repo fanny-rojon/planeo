@@ -26,7 +26,7 @@
               <div class="custom-card-info m-0">
             <% end %>
                 <h3 class="m-0 pl-3"><%= event.name %></h3>
-                <% if event.comment.nil? || event.comment.length > 44 %>
+                <% if event.comment.nil? || event.comment.length > 44 || event.comment == "" %>
                   <p class="m-0 pl-3"><%= event.address %></p>
                 <% else %>
                   <p class="m-0 pl-3"><%= event.comment %></p>

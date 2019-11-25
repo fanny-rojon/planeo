@@ -168,7 +168,7 @@ violetta = User.new(
   email: "violetta@lewagon.com",
   password: "123456",
 )
-  violetta.remote_photo_url = "https://pps.whatsapp.net/v/t61.24694-24/68753985_2390818014369503_2815862301075177472_n.jpg?oe=5DD90B0A&oh=1a32ee27e855d1345c32f9262f791b28&t=l&u=34605027047@c.us&i=1568571052"
+  violetta.remote_photo_url = "https://avatars0.githubusercontent.com/u/14589?v=4"
   violetta.save
 
 beatriz = User.new(
@@ -176,7 +176,7 @@ beatriz = User.new(
   email: "beatriz@lewagon.com",
   password: "123456",
 )
-  beatriz.remote_photo_url = "https://pps.whatsapp.net/v/t61.24694-24/62553972_873263513047805_2293700767300714496_n.jpg?oe=5DD90C2C&oh=78d7b58ed2c0685fef72ac8a3a7c381d&t=l&u=34646138005@c.us&i=1563273692"
+  beatriz.remote_photo_url = "https://avatars0.githubusercontent.com/u/14589?v=4"
   beatriz.save
 
 isa = User.new(
@@ -184,7 +184,7 @@ isa = User.new(
   email: "isa@lewagon.com",
   password: "123456",
 )
-  isa.remote_photo_url = "https://pps.whatsapp.net/v/t61.24694-24/70162519_728463174335874_7986757096672853308_n.jpg?oe=5DD90C28&oh=57de67e6a27bfc2fb1a1779a38fac68b&t=l&u=34676053544@c.us&i=1573549882"
+  isa.remote_photo_url = "https://avatars0.githubusercontent.com/u/14589?v=4"
   isa.save
 
 bea = User.new(
@@ -192,7 +192,7 @@ bea = User.new(
   email: "bea@lewagon.com",
   password: "123456",
 )
-  bea.remote_photo_url = "https://pps.whatsapp.net/v/t61.24694-24/55957536_2188272121264933_6299094371702669312_n.jpg?oe=5DDBEBDF&oh=616cb45c7d50777474b0d6ecb39faa16&t=l&u=34684145999@c.us&i=1551563356"
+  bea.remote_photo_url = "https://avatars0.githubusercontent.com/u/14589?v=4"
   bea.save
 
 anita = User.new(
@@ -200,7 +200,7 @@ anita = User.new(
   email: "anita@lewagon.com",
   password: "123456",
 )
-  anita.remote_photo_url = "https://pps.whatsapp.net/v/t61.24694-24/64219745_387115768821815_7278587961640222720_n.jpg?oe=5DD90CA7&oh=c98da6edaf882fa210dd1a0d50347da6&t=l&u=34619175370@c.us&i=1563096055"
+  anita.remote_photo_url = "https://avatars0.githubusercontent.com/u/14589?v=4"
   anita.save
 
 puts "Users created."

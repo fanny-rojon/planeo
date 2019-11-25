@@ -1,7 +1,6 @@
 <div class="main-container-two pt-4">
   <div class="card-event shadow">
     <%= cl_image_tag(@event.photo) %>
-    <!-- <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg" /> -->
     <div class="card-event-infos">
       <div>
         <h2 class="card-event-date">29 Nov</h2>
@@ -29,13 +28,41 @@
         </div>
       </div>
   </div>
-  <div class="dates">
-    <% @event.event_dates.each do |ed| %>
-      <p><%= ed.date %></p>
+  <br>
+<div class="voters">
+  <table id="body-table" style="width:100%">
+  <tr>
+    <th></th>
+    <% @event.event_dates.each do |event_date| %>
+      <th><h5><%= Date::ABBR_MONTHNAMES[event_date.date.month] %></h5><h3><%= event_date.date.day  %></h3><p><%= Date::ABBR_DAYNAMES[event_date.date.wday] %></p></th>
     <% end %>
-  </div>
-
-
+  </tr>
+  <tr id="current_user_row">
+    <td><img src="<%= current_user.photo %>" class="avatar photos" alt=""> <%= current_user.name %></td>
+    <% @event.event_dates.each do |event_date| %>
+      <td id="vote_button_<%= event_date.id %>"><%= render 'votes/vote_button', event_date: event_date %></td>
+    <% end %>
+  </tr>
+  <% @event.group.users.reject {|u| u == current_user }.each_with_index do |user, index| %>
+  <tr class="<%= index.even? ? "grey" : "white" %>">
+    <td class="user_photo_name"><img src="<%= user.photo %>" class="avatar photos" alt=""> <%= user.name %></td>
+    <% @event.event_dates.each do |event_date| %>
+      <% if Vote.find_by(user: user, event_date: event_date) %>
+        <td><i class="fas fa-check-circle text-warning"></i></td>
+      <% else %>
+        <td><i class="fas fa-check-circle" style="color: #dedede"></i></td>
+      <% end %>
+    <% end %>
+  </tr>
+  <% end %>
+  <tr class="count">
+    <td>Attendants</td>
+    <% @event.event_dates.each do |event_date| %>
+      <td><%= event_date.votes.count %></td>
+    <% end %>
+  </tr>
+</table>
+</div>
 
   <div class="buttons">
     <% if @event.organizer == current_user %>
@@ -46,8 +73,3 @@
   <%= link_to "Back to groups", group_path(@event.group), class: "secondary-button", style: "padding: 10px" %>
 </div>
 
-<%= link_to "#" do %>
-<div class="text-center w-100 primary-button mt-2 w-100 text-white" style="position: fixed; bottom: -18px; z-index: 1234; border-radius: 0;">
-  <p>IM GOING!</p>
-</div>
-<% end %>

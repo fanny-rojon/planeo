@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   mount_uploader :photo, PhotoUploader
   has_many :usergroups, dependent: :destroy
+  has_many :votes
   validates :name, presence: true
   has_many :groups, through: :usergroups, dependent: :destroy
   has_many :events, through: :groups

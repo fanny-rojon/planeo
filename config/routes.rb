@@ -6,6 +6,11 @@ Rails.application.routes.draw do
   resources :groups do
     resources :events, except: :index
   end
+  resources :event_dates, only: [] do
+    resources :votes, only: :create
+  end
+
+  resources :votes, only: :destroy
   get '/invites/:code', to: 'invitations#register', as: :invite
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
