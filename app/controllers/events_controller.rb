@@ -11,6 +11,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @marker = { lat: @event.latitude, lng: @event.longitude }
     @vote = Vote.new
+    @comment = Comment.new
   end
 
   def create
