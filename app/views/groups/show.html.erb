@@ -81,7 +81,7 @@
   <div class="text-center head mt-3 mb-4">
     <h2>WISHLIST</h2>
   </div>
-  <div class="row">
+  <div class="row" style="min-width: 100%;">
       <% @proposedevents.each do |event| %>
           <div class="col-lg-6 col-12">
             <%= link_to edit_event_path(event) do %>
