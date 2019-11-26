@@ -2,8 +2,8 @@
 <div class="main-container-two event-cont pt-0">
   <div class="event-image w-100" style="background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.4)), url(<%= @event.photo %>);">
     <div class="text-center text-white pt-5">
-      <p class="mb-0"><strong>ADDRESS:</strong></p>
-      <p class="p-0 m-0"><%= @event.address %></p>
+      <h4><%= @event.name %></h4>
+      <h4>(Nov 27)</h4>
     </div>
   </div>
   <div class="notification">
@@ -21,12 +21,19 @@
         data-marker="<%= @marker.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     </div>
-    <div class="text w-100">
-      <% if @event.time == "" || @event.time.nil?  %>
-      <div class="event-time d-flex align-items-center justify-content-center">22:00</div>
-      <% else %>
-      <div class="event-time d-flex align-items-center justify-content-center"><%= @event.time %></div>
-      <% end %>
+    <div class="text w-100 d-flex align-items-center justify-content-around">
+      <div>
+        <p class="mb-0"><strong>ADDRESS:</strong></p>
+        <p class="p-0 m-0"><%= @event.address %></p>
+      </div>
+      <div class="text-center">
+        <p class="mb-0"><strong>TIME:</strong></p>
+        <% if @event.time == "" || @event.time.nil?  %>
+        <div class="event-time">22:00</div>
+        <% else %>
+        <div class="event-time"><%= @event.time %></div>
+        <% end %>
+      </div>
     </div>
   </div>
     <% if @event.comments.present? %>
