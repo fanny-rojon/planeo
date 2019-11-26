@@ -17,6 +17,16 @@
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
   }
 }
+.event-map {
+  align-self: stretch;
+}
+.details {
+  letter-spacing: 3px;
+}
+.space {
+  height: 42vh;
+  width: 100%;
+}
 .event-time {
   margin: 0;
   font-size: 3em;
@@ -32,8 +42,12 @@
     margin: 0 auto;
   }}
 
+  .time {
+    padding: 0 1rem;
+  }
+
 .event-cont {
-  margin-top: 1rem;
+  margin-top: 4rem;
   padding-bottom: 0;
   margin-bottom: 4rem;
   display: flex;
@@ -111,4 +125,13 @@
 
 .notification .notification-actions a:hover {
   color: #555555;
+}
+
+.org-info {
+  border: 3px solid white;
+  box-shadow: 1px 1px 10px rgba(black, 0.3);
+  z-index: 1;
+  position: absolute;
+  max-width: 80px;
+  top: -20%;
 }
