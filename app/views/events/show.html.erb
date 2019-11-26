@@ -3,18 +3,20 @@
   <div class="event-image w-100 d-flex flex-column align-items-center justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.4)), url(<%= @event.photo %>);">
     <%= image_tag @event.organizer.photo.url, class:"avatar org-info" %>
     <div class="text-center text-white">
-      <h2 style="margin-bottom: 1rem;"><%= @event.name %></h2>
+      <h2 style="margin-bottom: 0.3rem;"><%= @event.name %></h2>
       <p><%= @event.description %></p>
     </div>
   </div>
+  <div class="row">
+    <div class="d-flex align-items-center justify-content-center w-100" style="padding: 15px 0; max-width: 250px; ">
+      <i class="fas fa-location-arrow" style="padding: 0.6rem; color: #ffffff; background: #f4632d; border-radius: 33px;"></i>
+      <p style="font-size: 1rem; margin-left: 17px;"><%= @event.address %></p>
+    </div>
+  </div>
   <div class="bg-white space d-flex">
-    <div class="text pt-3 w-100 d-flex flex-column justify-content-start align-items-start">
+    <div class="text bg-white w-100 d-flex flex-column justify-content-center align-items-center">
       <div class="text-center pl-2 details">
-        <p style="opacity: .5; font-size: 1rem" class="mb-0 pb-2" >EVENT DETAILS:</p>
-      </div>
-    <div class="d-flex align-items-center w-100">
-      <i class="p-3 fas fa-location-arrow" style="color: #F25004;"></i>
-      <p style="font-size: 1rem;"><%= @event.address %></p>
+        <p style="opacity: .5; font-size: 1rem" class="mb-2 pb-2" >DETAILS:</p>
       </div>
     <div class="d-flex align-items-center w-100">
       <i class="p-3 fas fa-calendar-alt" style="color: #F25004;"></i>
@@ -34,41 +36,49 @@
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
       </div>
   </div>
-<!--   <div class="infoe d-flex align-items-start w-100 p-3 mt-3">
-    <div class="event-map" style="width: 95%; height: 180px;">
-      <div
-        id="map"
-        style="width: 100%; height: 180px;"
-        data-marker="<%= @marker.to_json %>"
-        data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY'] %>"></div>
-    </div>
-    <div class="text w-100 d-flex align-items-center justify-content-center">
-      <div class="text-center time">
-        <p class="mb-0"><strong>ADDRESS:</strong></p>
-        <div class=""><%= @event.address %></div>
-      </div>
-    </div>
-  </div> -->
-<!--   <div class="infoe d-flex mb-3 align-items-start w-100 p-3 mt-3">
 
-    <div class="text w-100 d-flex align-items-center justify-content-center">
-      <div class="time mb-2">
-        <p class="p-0 m-0">NOV 27</p>
-      </div>
-      <div class="text-center time">
-        <p class="mb-0"><strong>TIME:</strong></p>
-        <#% if @event.time == "" || @event.time.nil?  %>
-        <div class="">22:00</div>
-        <#% else %>
-        <div class=""><%= @event.time %></div>
-        <#% end %>
-      </div>
-    </div>
-  </div> -->
-    <% if @event.comments.present? %>
+<div class="voters">
+  <table id="body-table" style="width:100%">
+  <tr>
+    <th></th>
+    <% @event.event_dates.each do |event_date| %>
+      <th>
+        <h5><%= Date::ABBR_MONTHNAMES[event_date.date.month] %></h5>
+        <h3><%= event_date.date.day  %></h3>
+        <h6 class="text-uppercase"><%= Date::ABBR_DAYNAMES[event_date.date.wday] %></h6>
+      </th>
+    <% end %>
+  </tr>
+  <tr id="current_user_row">
+    <td><img src="<%= current_user.photo %>" class="avatar photos" alt=""> <%= current_user.name %></td>
+    <% @event.event_dates.each do |event_date| %>
+      <td id="vote_button_<%= event_date.id %>"><%= render 'votes/vote_button', event_date: event_date %></td>
+    <% end %>
+  </tr>
+  <% @event.group.users.reject {|u| u == current_user }.each_with_index do |user, index| %>
+  <tr class="<%= index.even? ? "grey" : "white" %>">
+    <td class="user_photo_name"><img src="<%= user.photo %>" class="avatar photos" alt=""> <%= user.name %></td>
+    <% @event.event_dates.each do |event_date| %>
+      <% if Vote.find_by(user: user, event_date: event_date) %>
+        <td><i class="fas fa-check-circle text-warning"></i></td>
+      <% else %>
+        <td><i class="fas fa-check-circle" style="color: #dedede"></i></td>
+      <% end %>
+    <% end %>
+  </tr>
+  <% end %>
+  <tr class="count">
+    <td>Attendants</td>
+    <% @event.event_dates.each do |event_date| %>
+      <td><%= event_date.votes.count %></td>
+    <% end %>
+  </tr>
+</table>
+</div>
+<% if @event.comments.present? %>
   <section class="testimonials">
           <div class="heading text-center">
-            <h2><span><%= link_to "Comments", new_event_comment_path(@event) %></span> (<%= @event.comments.length %>)</h2>
+            <p style="opacity: .5; font-size: 1rem; letter-spacing: 4px;"><span><%= link_to "COMMENTS", new_event_comment_path(@event) %></span> (<%= @event.comments.length %>)</p>
           </div>
         <div class="container">
             <div class="row text-center">
@@ -78,15 +88,15 @@
                             <!-- Item-1 -->
                             <div class="carousel-item active text-center">
                                 <img src="<%= @event.comments.first.user.photo %>" alt="" class="center-block team" style="width: 50px !important; height: 50px !important;">
-                                <h3><%= @event.comments.first.user.name %></h3>
-                                <p><%= @event.comments.first.content %></p>
+                                <p style="opacity: .5; letter-spacing: 0.3rem;"><%= @event.comments.first.user.name.upcase %></p>
+                                <p style="font-size: 1.4rem;"><%= @event.comments.first.content %></p>
                             </div>
                             <!-- Item-2 -->
                             <% @event.comments.drop(1).each do |comment| %>
                             <div class="carousel-item text-center">
                                 <img src="<%= comment.user.photo %>" alt="" class="center-block team" style="width: 50px !important; height: 50px !important;">
-                                <h3><%= comment.user.name %></h3>
-                                <p><%= comment.content %></p>
+                                <p style="opacity: .5; letter-spacing: 0.3rem;"><%= comment.user.name.upcase %></p>
+                                <p style="font-size: 1.4rem"><%= comment.content %></p>
                             </div>
                             <% end %>
                         </div>
@@ -107,101 +117,31 @@
                             <span class="sr-only">Next</span>
                         </a>
                     </div>
-                <div class="d-flex align-items-center justify-content-center text-center">
-                  <a class="primary-button text-white" data-toggle="modal" data-target="#newComment">
+                <div class="d-flex align-items-center justify-content-center text-center mb-3">
+                  <a class="comment-button" data-toggle="modal" data-target="#newComment">
                     Leave a comment
                   </a>
               </div>
               </div>
             </div>
         </div>
-      <div class="modal fade" id="newComment" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-        <div class="text-center mt-3">
-          <h5 class="modal-title text-dark" id="exampleModalLongTitle"><strong>Write a Comment</strong></h5>
-        </div>
-      <div class="modal-body">
-        <%= simple_form_for [@event, @comment] do |f| %>
-            <%= f.input :content %>
-      <div class="modal-footer justify-content-center p-1">
-          <%= f.button :submit, value: "Send", class: "primary-button w-100" %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
-    </section>
+      <%= render "modal" %>
       <% else %>
-            <div class="modal fade" id="newComment" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-        <div class="text-center mt-3">
-          <h5 class="modal-title text-dark" id="exampleModalLongTitle"><strong>Write a Comment</strong></h5>
-        </div>
-      <div class="modal-body">
-        <%= simple_form_for [@event, @comment] do |f| %>
-            <%= f.input :content %>
-      <div class="modal-footer justify-content-center p-1">
-          <%= f.button :submit, value: "Send", class: "primary-button w-100" %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
-          <div class="d-flex align-items-center justify-content-center text-center m-3">
-              <a class="primary-button text-white" data-toggle="modal" data-target="#newComment">
+          <div class="d-flex pt-3 align-items-center bg-white w-100 justify-content-center text-center mb-3">
+              <a class="comment-button" data-toggle="modal" data-target="#newComment">
                 Be The First to leave a comment!
               </a>
           </div>
-
+          <%= render "modal" %>
       <% end %>
-<div class="voters">
-  <table id="body-table" style="width:100%">
-  <tr>
-    <th></th>
-    <% @event.event_dates.each do |event_date| %>
-      <th>
-        <h5><%= Date::ABBR_MONTHNAMES[event_date.date.month] %></h5>
-        <h3><%= event_date.date.day  %></h3>
-        <h6 class="text-uppercase"><%= Date::ABBR_DAYNAMES[event_date.date.wday] %></h6>
-      </th>
-    <% end %>
-  <tr class="count">
-    <td>Attendees</td>
-    <% @event.event_dates.each do |event_date| %>
-      <td class="att_counter" id="counter_<%= event_date.id %>"><%= event_date.votes.count %></td>
-    <% end %>
-  </tr>
-  </tr>
-  <tr id="current_user_row">
-    <td><img src="<%= current_user.photo %>" class="avatar photos" alt=""> <%= current_user.name %></td>
-    <% @event.event_dates.each do |event_date| %>
-      <td id="vote_button_<%= event_date.id %>"><%= render 'votes/vote_button', event_date: event_date %></td>
-    <% end %>
-  </tr>
-  <% @event.group.users.reject {|u| u == current_user }.each_with_index do |user, index| %>
-  <tr class="<%= index.even? ? "grey" : "white" %>">
-    <td class="user_photo_name"><img src="<%= user.photo %>" class="avatar photos" alt=""> <%= user.name %></td>
-    <% @event.event_dates.each do |event_date| %>
-      <% if Vote.find_by(user: user, event_date: event_date) %>
-        <td><i class="fas fa-check-circle text-warning"></i></td>
-      <% else %>
-        <td><i class="fas fa-check-circle" style="color: #dedede"></i></td>
-      <% end %>
-    <% end %>
-  </tr>
-  <% end %>
-</table>
-</div>
+    </section>
 
-
-  <div class="buttons pt-4">
+  <div class="buttons pt-4 mt-2 border-top w-100 d-flex justify-content-center align-items-center">
     <% if @event.organizer == current_user %>
       <%= link_to "Edit", edit_event_path(@event), class: "btn btn-primary" %>
       <%= link_to "Delete", event_path(@event), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
     <% end %>
-      <%= link_to "Back to Group" , group_path(@event.group), class: "btn btn-light" %>
+      <%= link_to "Back to Group" , group_path(@event.group), class: "primary-button" %>
   </div>
 </div>
 

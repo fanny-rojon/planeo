@@ -38,3 +38,18 @@
 .btns {
   width: 95%;
 }
+
+.comment-button {
+    background: white;
+    margin: 0;
+    border: 1px solid #f3f3f3;
+    padding: 1rem 2rem;
+    color: #e67e22 !important;
+    font-size: 20px;
+    font-weight: lighter;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+}
