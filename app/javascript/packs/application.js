@@ -19,7 +19,6 @@ const showEventPage = document.getElementById("events/show")
 const editEventPage = document.getElementById("events/edit")
 const editUserPage = document.getElementById("users/edit")
 
-
 if (newEventPage) {
   initMapbox();
   mapboxAddressValue();
