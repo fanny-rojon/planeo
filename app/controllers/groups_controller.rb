@@ -22,6 +22,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    redirect_to root_path, notice: 'You do not belong to this group' unless @group.users.include?(current_user)
     @event = Event.new
     @myevents = @group.events.organized_by(current_user)
     @organizedevents = @group.events.not_organized_by(current_user)
@@ -30,6 +31,7 @@ class GroupsController < ApplicationController
 
   def edit
     @group = Group.find(params[:id])
+    redirect_to root_path, notice: 'You do not belong to this group' unless @group.users.include?(current_user)
   end
 
   def update
