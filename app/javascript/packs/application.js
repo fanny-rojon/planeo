@@ -17,6 +17,7 @@ const newGroupPage = document.getElementById("groups/new")
 const newEventPage = document.getElementById("events/create")
 const showEventPage = document.getElementById("events/show")
 const editEventPage = document.getElementById("events/edit")
+const editUserPage = document.getElementById("users/edit")
 
 
 if (newEventPage) {
@@ -36,7 +37,7 @@ if (showEventPage) {
   initMapboxNoSearch();
 }
 
-if (signUpPage) {
+if (signUpPage || editUserPage) {
   setUserPreview();
 }
 
