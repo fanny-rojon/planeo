@@ -9,6 +9,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    redirect_to root_path, notice: 'You do not belong to this group' unless @event.group.users.include?(current_user)
     @marker = { lat: @event.latitude, lng: @event.longitude }
     @vote = Vote.new
     @comment = Comment.new
@@ -49,6 +50,7 @@ class EventsController < ApplicationController
 
   def edit
     @event.event_dates.build if @event.state == "proposed"
+    redirect_to root_path, notice: 'You do not belong to this group' unless @event.group.users.include?(current_user)
     @event.latitude != nil ? @marker = { lat: @event.latitude, lng: @event.longitude } : @marker = { lat: 40.398471, lng: -3.686408 }
   end
 
