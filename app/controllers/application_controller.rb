@@ -9,6 +9,13 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    groups_path
+    if cookies[:invite_group_code].present?
+      group = Group.find_by(code: cookies[:invite_group_code])
+      resource.groups |= Array(group)
+
+      group_path(group)
+    else
+      groups_path
+    end
   end
 end

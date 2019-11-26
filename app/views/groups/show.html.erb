@@ -155,9 +155,21 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+
       <div class="modal-body">
         <h5>Send this link to your friends to invite them to this group!</h5>
-          <p><%= invite_url(code: @group.code) %></p>
+          <div class="form-group">
+            <%= text_field_tag :code, invite_url(code: @group.code), id: 'invite-link', class: 'form-control form-control-lg' %>
+          </div>
+
+          <button class="btn btn-secondary" data-clipboard-target="#invite-link">
+            Copy link
+          </button>
       </div>
+
+      <script>new ClipboardJS('.btn');</script>
+
     </div>
   </div>
