@@ -44,15 +44,15 @@ anita = User.find_by(name: "Anita")
 
 # Felipe is not in Le Wagon - adding him at Demo Day
 
-group1.users << [karim, bitna, fanny, carol, felipe, ana, gabriela, belen, maja, herve, niklas, javier, gonzalo, martin, ricardo]
+group1.users << [karim, bitna, fanny, carol, ana, gabriela, belen, maja, herve, niklas, javier, gonzalo, martin, ricardo]
 
-group2.users << [caroline, laure, delphine, celine, fanny, felipe]
+group2.users << [caroline, laure, delphine, celine, fanny]
 
-group3.users << [beatriz, isa, violetta, bea, anita, fanny, felipe]
+group3.users << [beatriz, isa, violetta, bea, anita, fanny]
 
 group4.users << [karim, felipe, niklas, herve, javier, gonzalo, ricardo, martin]
 
-group5.users << [bitna, carol, ana, gabriela, belen, maja, felipe]
+group5.users << [bitna, carol, ana, gabriela, belen, maja]
 
 group6.users << [karim, felipe, niklas, herve, javier]
 
