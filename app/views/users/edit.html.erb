@@ -1,21 +1,23 @@
   <div class="container mt-4 mb-4">
-  <div class="text-center">
-    <h2>Group Details</h2>
+  <div class="text-center head">
+    <h2>EDIT PROFILE</h2>
   </div>
     <%= simple_form_for (@user) do |f| %>
     <div class="box-w mt-3">
       <div class="form-inputs">
-        <%= f.input :photo, label: "Add Photo" %>
+        <div class="text-center">
+        <%= f.input :photo, label: ('<i class="fas fa-camera photo-icon"></i>').html_safe %>
         <%= f.input :photo_cache, as: :hidden %>
         <%= f.input :name, placeholder: "Name of group"%>
         <%= f.input :email, placeholder: "Name of group"%>
+        </div>
       </div>
-    <div class="submit text-center">
-      <%= f.button :submit, class: "custom-button padding-right-left"%>
+    <div class="submit text-center mt-5">
+      <%= f.button :submit, value: "Update Profile", class: "primary-button"%>
     <% end %>
     </div>
-    <div class="text-center mt-3">
-      <%= link_to "Go Back", groups_path, class: "custom-button" %>
+    <div class="text-center mt-4">
+      <%= link_to "Go Back", groups_path, class: "secondary-button" %>
     </div>
   </div>
 </div>
