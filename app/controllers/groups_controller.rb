@@ -14,7 +14,7 @@ class GroupsController < ApplicationController
       flash[:alert]
       render :new
     elsif @group.save!
-        redirect_to groups_path
+      redirect_to groups_path
     else
       render :new
     end

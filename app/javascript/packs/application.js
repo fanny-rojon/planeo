@@ -31,6 +31,7 @@ if (editEventPage) {
   initMapbox();
   mapboxAddressValue();
   setEventPreview();
+  selectDates();
 }
 
 if (showEventPage) {
