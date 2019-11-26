@@ -167,6 +167,12 @@
         <h6 class="text-uppercase"><%= Date::ABBR_DAYNAMES[event_date.date.wday] %></h6>
       </th>
     <% end %>
+  <tr class="count">
+    <td>Attendees</td>
+    <% @event.event_dates.each do |event_date| %>
+      <td class="att_counter" id="counter_<%= event_date.id %>"><%= event_date.votes.count %></td>
+    <% end %>
+  </tr>
   </tr>
   <tr id="current_user_row">
     <td><img src="<%= current_user.photo %>" class="avatar photos" alt=""> <%= current_user.name %></td>
@@ -186,12 +192,6 @@
     <% end %>
   </tr>
   <% end %>
-  <tr class="count">
-    <td>Attendants</td>
-    <% @event.event_dates.each do |event_date| %>
-      <td><%= event_date.votes.count %></td>
-    <% end %>
-  </tr>
 </table>
 </div>
 

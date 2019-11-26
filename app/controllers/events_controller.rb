@@ -48,15 +48,24 @@ class EventsController < ApplicationController
   end
 
   def edit
+    @event.event_dates.build if @event.state == "proposed"
     @event.latitude != nil ? @marker = { lat: @event.latitude, lng: @event.longitude } : @marker = { lat: 40.398471, lng: -3.686408 }
   end
 
   def update
-    @event.state = "organized" if @event.state == "proposed"
-    @event.organizer = current_user
-    params[:address] = @event.address if params[:address] == nil
-    @event.update(event_params)
-    redirect_to event_path(@event)
+    if params[:event][:event_dates_attributes].nil?
+      params[:address] = @event.address if params[:address].nil?
+      @event.update(event_edit_params)
+      redirect_to event_path(@event)
+    elsif params[:event][:event_dates_attributes]["0"]["date"] == ""
+      redirect_to edit_event_path(@event), notice: 'You must include a date'
+    else
+      @event.state = "organized" if @event.state == "proposed"
+      @event.organizer = current_user
+      params[:address] = @event.address if params[:address].nil?
+      @event.update(event_params)
+      redirect_to event_path(@event)
+    end
   end
 
   def destroy
@@ -81,5 +90,9 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:name, :state, :address, :photo, :organizer, :time, :description, event_dates_attributes: [:date])
+  end
+
+  def event_edit_params
+    params.require(:event).permit(:name, :address, :photo, :time, :description)
   end
 end

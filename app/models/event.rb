@@ -8,6 +8,7 @@ class Event < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :usergroups, through: :group
   has_many :event_dates, dependent: :destroy, inverse_of: :event
+  validates_length_of :event_dates, maximum: 3
 
   validates :name, length: { in: 4..24 }
   validates :description, length: { maximum: 44 }

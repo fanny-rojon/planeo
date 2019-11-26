@@ -39,5 +39,8 @@ th {
 }
 
 .count {
-    border-top: 2px solid rgba(30,30,30,0.2);
+    border-bottom: 2px solid rgba(30,30,30,0.2);
+    .att-counter {
+      font-size: 30px;
+    }
 }
