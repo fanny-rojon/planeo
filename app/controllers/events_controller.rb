@@ -48,6 +48,7 @@ class EventsController < ApplicationController
   end
 
   def edit
+    @event.event_dates.build if @event.state == "proposed"
     @event.latitude != nil ? @marker = { lat: @event.latitude, lng: @event.longitude } : @marker = { lat: 40.398471, lng: -3.686408 }
   end
 
