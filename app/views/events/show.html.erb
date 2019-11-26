@@ -25,7 +25,7 @@
     </div>
      <div class="d-flex align-items-center w-100">
       <i class="p-3 fas fa-clock" style="color: #F25004;"></i>
-      <h4 class="mr-2">22:00</h4>
+      <h4 class="mr-2"><%=@event.time%></h4>
     </div>
     </div>
     <div class="event-map" style="width: 100%; height: 100%;">
@@ -131,7 +131,6 @@
               <a class="comment-button" data-toggle="modal" data-target="#newComment">
                 Be The First to leave a comment!
               </a>
-          </div>
           <%= render "modal" %>
       <% end %>
     </section>

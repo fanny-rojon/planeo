@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Oops!!</title>
+  <link rel="shortcut icon" type="image/png" href="images/mascotte.png"/>
+
+  <title>Planeo - 500 Error</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
     h1 {
       opacity: 0.8;
       font-size: 25px;
       padding: 10px 0px;
+      color: #1c5acc;
+      text-align: -webkit-center;
+      margin: 0px 30px;
     }
   .principal {
     display: flex;
-    align-items: center;
+    align-items: ceanter;
     justify-content: center;
-    margin: 100px 0px;
+    margin: 30px 0px;
+  }
+
+  .principal img {
+    width: 100%;
   }
 
   .button:hover {
@@ -31,9 +40,18 @@
     transition: background 0.3s ease;
     margin-top: 40px;
   }
-  .logo {
-    text-align: right;
-    padding: 20px 0px;
+  .text {
+    text-align: center;
+  }
+
+  @media (max-width: 700px) {
+    .principal {
+      display: block;
+      text-align: center;
+    }
+    .principal img {
+      width: 60%;
+    }
   }
 
   </style>
@@ -41,12 +59,12 @@
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/404.html -->
+    <img src="/images/planeo_logo_o.png" width="200" alt="" >
   <div class="principal">
     <div class="image">
       <img src="/images/mascotte.png" alt="" >
     </div>
     <div class="text">
-      <img src="/images/planeo_logo_o.png" alt="" >
       <h1>Oops! Something went terribly wrong!</h1>
       <button onclick="window.location.href = 'http://www.planeo.xyz'" class="button">Back to homepage</button>
   </div>
