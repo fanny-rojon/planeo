@@ -49,6 +49,12 @@
       </th>
     <% end %>
   </tr>
+  <tr class="count">
+    <td>Attendees</td>
+    <% @event.event_dates.each do |event_date| %>
+      <td id="counter_<%= event_date.id %>" class="att-counter"><%= event_date.votes.count %></td>
+    <% end %>
+  </tr>
   <tr id="current_user_row">
     <td><img src="<%= current_user.photo %>" class="avatar photos" alt=""> <%= current_user.name %></td>
     <% @event.event_dates.each do |event_date| %>
@@ -67,12 +73,6 @@
     <% end %>
   </tr>
   <% end %>
-  <tr class="count">
-    <td>Attendants</td>
-    <% @event.event_dates.each do |event_date| %>
-      <td><%= event_date.votes.count %></td>
-    <% end %>
-  </tr>
 </table>
 </div>
 <% if @event.comments.present? %>
