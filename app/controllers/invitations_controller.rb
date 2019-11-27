@@ -4,10 +4,12 @@ class InvitationsController < ApplicationController
   def register
     group = Group.find_by(code: params[:code])
 
-    if user_signed_in?
-      current_user.groups |= Array(group)
-      redirect_to group_path(group)
-    end
+    return unless user_signed_in?
+
+    current_user.groups |= Array(group)
+    cookies.delete(:invite_group_code)
+
+    redirect_to group_path(group)
   end
 
   def store_group_cookie

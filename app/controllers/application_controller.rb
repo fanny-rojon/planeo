@@ -21,6 +21,7 @@ class ApplicationController < ActionController::Base
     if cookies[:invite_group_code].present?
       group = Group.find_by(code: cookies[:invite_group_code])
       resource.groups |= Array(group)
+      cookies.delete(:invite_group_code)
 
       group_path(group)
     else
