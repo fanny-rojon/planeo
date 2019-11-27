@@ -29,13 +29,15 @@
       <h4 class="address-show"><%= @event.address %></h4>
     </div>
     </div>
-    <div style="height: 200px;" class="row">
-      <div class="col-12 event-map" style="width: 100%; height: 100%;">
-        <div
-          id="map"
-          style="width: 100%; height: 100%;"
-          data-marker="<%= @marker.to_json %>"
-          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    <div class="container-fluid">
+      <div style="height: 200px;" class="row">
+        <div class="col-12 event-map" style="width: 100%; height: 100%;">
+          <div
+            id="map"
+            style="width: 100%; height: 100%;"
+            data-marker="<%= @marker.to_json %>"
+            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+        </div>
       </div>
     </div>
   </div>
