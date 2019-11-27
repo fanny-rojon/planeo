@@ -63,6 +63,7 @@ class EventsController < ApplicationController
       redirect_to edit_event_path(@event), notice: 'You must include a date'
     else
       @event.state = "organized" if @event.state == "proposed"
+      @event.remote_photo_url = "https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" if @event.photo.identifier.nil?
       @event.organizer = current_user
       params[:address] = @event.address if params[:address].nil?
       @event.update(event_params)
