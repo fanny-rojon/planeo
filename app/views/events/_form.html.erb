@@ -1,5 +1,8 @@
 <%= simple_form_for [@event] do |f| %>
   <div class="box-w mt-3">
+          <%= link_to group_path(@event.group), class: "back-button" do %>
+        <p><i class="fas fa-chevron-left"></i> Back</p>
+      <% end %>
     <div class="form-inputs">
         <div class="text-center mt-3 mb-3">
           <%= f.input :photo, label: ('<i class="fas fa-camera photo-icon"></i>').html_safe %>
@@ -39,10 +42,7 @@
       </div>
     </div>
     <div class="submit text-center">
-      <%= f.button :submit, class: "primary-button padding-right-left"%>
+      <%= f.button :submit, value: "Organize",class: "primary-button padding-right-left"%>
     <% end %>
-    </div>
-    <div class="text-center mt-3">
-      <%= link_to "Go Back", group_path(@event.group), class: "secondary-button" %>
     </div>
   </div>
