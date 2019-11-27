@@ -45,6 +45,9 @@
   }
 }
 
+.container {
+  max-width: 800px !important;
+}
 .main-container-two {
   width: 90%;
   margin: 0 auto;
@@ -60,3 +63,13 @@
     max-width: 810px;
     margin: 0 auto;
   }}
+
+.loc {
+  width: 100%;
+}
+
+@include media-breakpoint-up(sm) {
+    .loc {
+    width: 50%;
+  }}
+
