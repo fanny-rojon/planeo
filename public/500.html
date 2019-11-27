@@ -14,50 +14,49 @@
       text-align: -webkit-center;
       margin: 0px 30px;
     }
-  .principal {
-    display: flex;
-    align-items: ceanter;
-    justify-content: center;
-    margin: 30px 0px;
-  }
-
-  .principal img {
-    width: 100%;
-  }
-
-  .button:hover {
-    background: #eb653a;
-    color: white;
-  }
-
-  .button {
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 16px 24px;
-    border-radius: 4px;
-    background: #eb653a;
-    transition: background 0.3s ease;
-    margin-top: 40px;
-  }
-  .text {
-    text-align: center;
-  }
-
-  @media (max-width: 700px) {
     .principal {
-      display: block;
+      display: flex;
+      align-items: ceanter;
+      justify-content: center;
+      margin: 30px 0px;
+    }
+
+    .principal img {
+      width: 100%;
+    }
+
+    .button:hover {
+      background: #eb653a;
+      color: white;
+    }
+
+    .button {
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 16px 24px;
+      border-radius: 4px;
+      background: #eb653a;
+      transition: background 0.3s ease;
+      margin-top: 40px;
+    }
+    .text {
       text-align: center;
     }
-    .principal img {
-      width: 60%;
-    }
-  }
 
+    @media (max-width: 700px) {
+      .principal {
+        display: block;
+        text-align: center;
+      }
+      .principal img {
+        width: 60%;
+      }
+    }
   </style>
 </head>
 
-<body class="rails-default-error-page">
+<body>
   <!-- This file lives in public/404.html -->
     <img src="/images/planeo_logo_o.png" width="200" alt="" >
   <div class="principal">
