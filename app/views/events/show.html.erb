@@ -1,4 +1,5 @@
 <%= content_for(:title, @event.name) %>
+
 <div class="container">
   <div class="main-container-two event-cont pt-0 relative">
     <div class="event-image w-100 d-flex flex-column align-items-center justify-content-center" style="background-image: url(<%= @event.photo %>);">
@@ -6,31 +7,40 @@
         <p><i class="fas fa-chevron-left"></i> Back</p>
       <% end %>
       <%= image_tag @event.organizer.photo.url, class:"avatar org-info" %>
-
     </div>
+
     <div class="bg-white space">
       <div class="pt-0 pl-4 pr-4 pb-4">
         <div class="text-center pl-2 details">
           <h2 class="title-show mb-5" style="margin-bottom: 0.3rem;"><%= @event.name %></h2>
         </div>
         <div class="d-flex flex-column align-items-start justify-content-center pl-2">
-            <div>
-              <div class="d-flex w-75 p-2">
-                  <i class="pr-3 fas fa-calendar-alt" style="color: #F25004;"></i>
-                  <h4 class="date-show mr-2 d-flex justify-content-between">FRI <span style="margin-left: 5px; opacity: 0.2;">|</span></h4>
-                  <h5 class="date-show mr-2">NOV</h5>
-                  <h4 class="date-show mr-2">27</h4>
-              </div>
-              <div class="d-flex w-75 p-2">
-                  <i class="pr-3 fas fa-clock" style="color: #F25004;"></i>
-                  <h4 class="date-show mr-2"><%=@event.time%></h4>
-              </div>
+          <div>
+            <div class="d-flex w-75 p-2">
+              <i class="pr-3 fas fa-calendar-alt" style="color: #F25004;"></i>
+              <% if @event.confirmed_date.present? %>
+                <h4 class="date-show mr-2 d-flex justify-content-between">
+                  <%= @event.weekday.upcase %>
+                  <span style="margin-left: 5px; opacity: 0.2;">|</span>
+                </h4>
+                <h5 class="date-show mr-2"><%= @event.monthname.upcase %></h5>
+                <h4 class="date-show mr-2"><%= @event.day %></h4>
+              <% else %>
+                <h4 class="date-show mr-2 d-flex justify-content-between">
+                  TBC
+                </h4>
+              <% end %>
             </div>
-            <div class="w-100 d-flex p-2">
-              <i class="pr-3 fas fa-location-arrow" style="color: #f4632d;"></i>
-              <h4 class="address-show"><%= @event.address %></h4>
+            <div class="d-flex w-75 p-2">
+                <i class="pr-3 fas fa-clock" style="color: #F25004;"></i>
+                <h4 class="date-show mr-2"><%=@event.time%></h4>
             </div>
           </div>
+          <div class="w-100 d-flex p-2">
+            <i class="pr-3 fas fa-location-arrow" style="color: #f4632d;"></i>
+            <h4 class="address-show"><%= @event.address %></h4>
+          </div>
+        </div>
       <div style="height: 200px;">
         <div class="col-12 event-map" style="width: 100%; height: 100%;">
           <div
@@ -44,39 +54,74 @@
 
   <div class="voters">
     <table id="body-table" style="width:100%">
-    <tr>
-      <th></th>
-      <% @event.event_dates.each do |event_date| %>
-        <th>
-          <h5><%= Date::ABBR_MONTHNAMES[event_date.date.month] %></h5>
-          <h3><%= event_date.date.day  %></h3>
-          <h6 class="text-uppercase"><%= Date::ABBR_DAYNAMES[event_date.date.wday] %></h6>
-        </th>
-      <% end %>
-    </tr>
-    <tr class="count">
-      <td id="font-20">Attendees</td>
-      <% @event.event_dates.each do |event_date| %>
-        <td id="counter_<%= event_date.id %>" class="att-counter"><%= event_date.votes.count %></td>
-      <% end %>
-    </tr>
-    <tr id="current_user_row">
-      <td class="text-left"><img src="<%= current_user.photo %>" class="avatar photos" alt=""> <%= current_user.name %></td>
-      <% @event.event_dates.each do |event_date| %>
-        <td id="vote_button_<%= event_date.id %>"><%= render 'votes/vote_button', event_date: event_date %></td>
-      <% end %>
-    </tr>
-    <% @event.group.users.reject {|u| u == current_user }.each_with_index do |user, index| %>
-    <tr class="<%= index.even? ? "grey" : "white" %>">
-      <td class="user_photo_name text-left"><img src="<%= user.photo %>" class="avatar photos" alt=""> <%= user.name %></td>
-      <% @event.event_dates.each do |event_date| %>
-        <% if Vote.find_by(user: user, event_date: event_date) %>
-          <td><i class="fas fa-check-circle text-warning"></i></td>
-        <% else %>
-          <td><i class="fas fa-check-circle" style="color: #dedede"></i></td>
+      <tr>
+        <th></th>
+        <% @event.event_dates.each do |event_date| %>
+          <th>
+            <h5><%= Date::ABBR_MONTHNAMES[event_date.date.month] %></h5>
+            <h3><%= event_date.date.day  %></h3>
+            <h6 class="text-uppercase"><%= Date::ABBR_DAYNAMES[event_date.date.wday] %></h6>
+          </th>
         <% end %>
+      </tr>
+
+      <% if (@event.organizer == current_user) && @event.confirmed_date.blank? %>
+        <tr class="count">
+          <td id="font-20">Final date</td>
+          <% @event.event_dates.each do |event_date| %>
+            <td>
+              <%= link_to 'Pick', confirm_event_date_path(event_date),
+              method: :patch, data: { confirm: 'Are you sure you want to confirm this date?' },
+              class: 'btn btn-outline-primary' %>
+            </td>
+          <% end %>
+        </tr>
       <% end %>
-    </tr>
+
+      <tr class="count">
+        <td id="font-20">Attendees</td>
+        <% @event.event_dates.each do |event_date| %>
+          <td id="counter_<%= event_date.id %>" class="att-counter"><%= event_date.votes.count %></td>
+        <% end %>
+      </tr>
+
+      <% if @event.confirmed_date.blank? %>
+        <tr id="current_user_row">
+          <td class="text-left"><img src="<%= current_user.photo %>" class="avatar photos" alt=""><%= current_user.name %></td>
+          <% @event.event_dates.each do |event_date| %>
+            <td id="vote_button_<%= event_date.id %>"><%= render 'votes/vote_button', event_date: event_date %></td>
+          <% end %>
+        </tr>
+      <% else %>
+        <tr id="current_user_row">
+          <td class="user_photo_name text-left">
+            <%= image_tag current_user.photo_url, class: 'avatar photos' %>
+            <%= current_user.name %>
+          </td>
+          <% @event.event_dates.each do |event_date| %>
+            <% if Vote.find_by(user: current_user, event_date: event_date) %>
+              <td><i class="fas fa-check-circle text-warning"></i></td>
+            <% else %>
+              <td><i class="fas fa-check-circle" style="color: #dedede"></i></td>
+            <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+
+    <% @event.group.users.reject { |u| u == current_user }.each_with_index do |user, index| %>
+      <tr class="<%= index.even? ? "grey" : "white" %>">
+        <td class="user_photo_name text-left">
+          <img src="<%= user.photo %>" class="avatar photos" alt="">
+          <%= user.name %>
+        </td>
+        <% @event.event_dates.each do |event_date| %>
+          <% if Vote.find_by(user: user, event_date: event_date) %>
+            <td><i class="fas fa-check-circle text-warning"></i></td>
+          <% else %>
+            <td><i class="fas fa-check-circle" style="color: #dedede"></i></td>
+          <% end %>
+        <% end %>
+      </tr>
     <% end %>
   </table>
   </div>

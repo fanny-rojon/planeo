@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   end
 
   resources :event_dates, only: [] do
+    member do
+      patch :confirm
+    end
+
     resources :votes, only: :create
   end
 

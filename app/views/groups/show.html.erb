@@ -1,5 +1,6 @@
 <%= content_for(:title, @group.name) %>
 <%= render "shared/modal" %>
+
 <div class="main-container-two">
   <div class="text-center pt-2 border-bottom pb-2 group-photos d-flex justify-content-center w-100">
     <% @group.users.first(10).each do |user| %>
@@ -19,7 +20,7 @@
         <%= link_to event_path(event) do %>
           <div class="custom-card mb-0 d-flex mt-2 mr-2 ml-2 align-items-center">
             <% unless event.photo.identifier.nil? %>
-            <img src="<%= event.photo %>">
+              <img src="<%= event.photo %>">
             <% end %>
             <% if event.photo.identifier.nil? %>
               <div class="custom-card-info w-100 text-center m-0 d-flex flex-column justify-content-center align-items-center">
@@ -27,10 +28,16 @@
               <div class="custom-card-info m-0">
             <% end %>
             <div class="d-flex pl-3 align-items-center" >
-              <div class="text-center">
-                <h3 style="font-weight: lighter; color: #F25004;">NOV</h3>
-                <h3>27</h3>
-              </div>
+              <% if event.confirmed_date.present? %>
+                  <div class="text-center">
+                    <h3 style="font-weight: lighter; color: #F25004;"><%= event.monthname.upcase %></h3>
+                    <h3><%= event.day %></h3>
+                  </div>
+                <% else %>
+                    <div class="text-center">
+                    <h3 style="font-weight: lighter; color: #F25004;">TBC</h3>
+                  </div>
+                <% end %>
               <div>
                 <h3 class="m-0 pl-3"><%= event.name %></h3>
                 <% if event.description.nil? || event.description.length > 44 || event.description == "" %>
@@ -66,10 +73,16 @@
               <div class="custom-card-info m-0">
             <% end %>
               <div class="d-flex pl-3 align-items-center" >
-                <div class="text-center">
-                  <h3 style="font-weight: lighter; color: #F25004;">NOV</h3>
-                  <h3>27</h3>
-                </div>
+                <% if event.confirmed_date.present? %>
+                    <div class="text-center">
+                      <h3 style="font-weight: lighter; color: #F25004;"><%= event.monthname.upcase %></h3>
+                      <h3><%= event.day %></h3>
+                    </div>
+                  <% else %>
+                      <div class="text-center">
+                      <h3 style="color: #F25004;">TBC</h3>
+                    </div>
+                  <% end %>
                 <div>
                 <h3 class="m-0 pl-3"><%= event.name %></h3>
                 <% if event.description.nil? || event.description == "" %>

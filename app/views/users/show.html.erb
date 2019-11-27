@@ -18,10 +18,16 @@
               <div class="custom-card-info m-0">
             <% end %>
             <div class="d-flex pl-3 align-items-center" >
-              <div class="text-center">
-                <h3 style="font-weight: lighter; color: #F25004;">NOV</h3>
-                <h3>27</h3>
-              </div>
+            <% if event.confirmed_date.present? %>
+                <div class="text-center">
+                  <h3 style="font-weight: lighter; color: #F25004;"><%= event.monthname.upcase %></h3>
+                  <h3><%= event.day %></h3>
+                </div>
+              <% else %>
+                  <div class="text-center">
+                  <h3 style="font-weight: lighter; color: #F25004;">TBC</h3>
+                </div>
+              <% end %>
               <div>
                 <h3 class="m-0 pl-3"><%= event.name %></h3>
                 <% if event.description.nil? || event.description.length > 44 || event.description == "" %>
