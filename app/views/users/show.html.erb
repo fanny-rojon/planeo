@@ -6,7 +6,7 @@
     <% if @myevents.length > 0 %>
 <div class="row">
     <% @myevents.each do |event| %>
-    <div class="col-xl-6 col-12">
+    <div class="col-12">
         <%= link_to event_path(event) do %>
           <div class="custom-card mb-0 d-flex mt-2 mr-2 ml-2 align-items-center">
             <% unless event.photo.identifier.nil? %>
@@ -33,7 +33,7 @@
             </div>
               </div>
           </div>
-            <p class="pb-2 pl-2 pt-0" style="opacity: .4; letter-spacing: 2px;margin-top: 7px; font-size: 0.8rem;">ORGANIZED BY: <%=event.organizer.name.upcase %> </p>
+            <p class="pb-2 pl-2 pt-0" style="opacity: .4; letter-spacing: 2px;margin-top: 7px; font-size: 0.8rem;">ORGANIZED BY: <%=event.organizer.name.upcase %> | <%=event.group.name.upcase %></p>
         </div>
       <% end %>
     <% end %>
