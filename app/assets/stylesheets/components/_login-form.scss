@@ -5,6 +5,15 @@
   width: 80%;
   max-width: 500px;
   margin: 0 auto;
+  position: relative;
+  .back-button {
+    left: 22px;
+    top: 15px;
+    p {
+      color: rgb(50, 50, 50);
+      text-shadow: none;
+    }
+  }
   .primary-button {
     padding: 1rem 2rem;
 
