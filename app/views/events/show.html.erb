@@ -132,7 +132,7 @@
           </div>
         <%= render "modal" %>
         <% else %>
-            <div style="padding: 29px 0;">
+            <div class="p-2 bg-white" style="display: flex; flex-direction: column; align-items: center;">
                 <a class="comment-button" data-toggle="modal" data-target="#newComment">
                   Be The First to leave a comment!
                 </a>
@@ -140,7 +140,7 @@
         <% end %>
       </section>
 
-    <div class="buttons pt-4 mt-2 border-top w-100 d-flex justify-content-center align-items-center">
+    <div class="buttons pt-4 mt-2 border-top w-100 d-flex justify-content-around align-items-center">
       <% if @event.organizer == current_user %>
         <%= link_to "Edit", edit_event_path(@event), class: "btn btn-primary" %>
         <%= link_to "Delete", event_path(@event), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
