@@ -55,7 +55,7 @@
       <% end %>
     </tr>
     <tr class="count">
-      <td>Attendees</td>
+      <td id="font-20">Attendees</td>
       <% @event.event_dates.each do |event_date| %>
         <td id="counter_<%= event_date.id %>" class="att-counter"><%= event_date.votes.count %></td>
       <% end %>
@@ -132,7 +132,7 @@
           </div>
         <%= render "modal" %>
         <% else %>
-            <div class="p-2 bg-white" style="display: flex; flex-direction: column; align-items: center;">
+            <div class="p-2 bg-white text-center" style="display: flex; flex-direction: column; align-items: center;">
                 <a class="comment-button" data-toggle="modal" data-target="#newComment">
                   Be The First to leave a comment!
                 </a>
