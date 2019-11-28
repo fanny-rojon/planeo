@@ -1,5 +1,5 @@
 .primary-button {
-  background: #ef804c;
+  background: #FF101F;
   margin: 0;
   padding: 1rem 2rem;
   color: white;
@@ -12,7 +12,6 @@
   &:hover{
     color: white;
     text-decoration: none;
-    background: #F25004;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
   }
 }
@@ -21,11 +20,11 @@
   background-color: transparent;
   margin: 0;
   padding: 1rem 2rem;
-  color: #F25004;
+  color: #FF101F;
   border-radius: 3px;
   font-size: 20px;
   font-family: 'Montserrat', sans-serif;
-  border: 1px solid #F25004;
+  border: 1px solid #FF101F;
   transition: all 0.3s ease;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
   &:hover{
@@ -44,7 +43,7 @@
     margin: 0;
     border: 1px solid #f3f3f3;
     padding: 1rem 2rem;
-    color: #e67e22 !important;
+    color: #FF101F !important;
     font-size: 20px;
     font-weight: lighter;
     font-family: 'Montserrat', sans-serif;
@@ -54,6 +53,6 @@
     border-radius: 3px;
     &:hover {
       color: white !important;
-      background-color: #e67e22;
+      background-color: #FF101F;
     }
 }

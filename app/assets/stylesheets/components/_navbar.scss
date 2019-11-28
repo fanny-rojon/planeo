@@ -15,7 +15,7 @@
 
 .planeo-logo {
   img {
-    background: #F25004;
+    background: transparent;
     width: 100px;
     height: 50px;
     margin: 0;
@@ -49,10 +49,10 @@ ul {
   a {
     color: white !important;
     &:hover {
-      color: #F25004 !important;
+      color: #FF101F !important;
     }
   }
-  background-color: #F25004;
+  background-color: #FF101F;
 }
 
 
