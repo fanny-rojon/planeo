@@ -24,8 +24,14 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     redirect_to root_path, notice: 'You do not belong to this group' unless @group.users.include?(current_user)
     @event = Event.new
-    @myevents = @group.events.organized_by(current_user)
-    @organizedevents = @group.events.not_organized_by(current_user)
+    mytemp = @group.events.organized_by(current_user)
+    mytemp1 = mytemp.select { |ev| ev.confirmed_date }.sort_by { |ev| ev.confirmed_date.date }
+    mytemp2 = mytemp.reject { |ev| ev.confirmed_date }
+    @myevents = mytemp1 + mytemp2
+    organizedtemp = @group.events.not_organized_by(current_user)
+    temp1 = organizedtemp.select { |ev| ev.confirmed_date }.sort_by { |ev| ev.confirmed_date.date }
+    temp2 = organizedtemp.reject { |ev| ev.confirmed_date }
+    @organizedevents = temp1 + temp2
     @proposedevents = @group.events.proposed
   end
 
@@ -36,7 +42,6 @@ class GroupsController < ApplicationController
 
   def update
     @group = Group.find(params[:id])
-    @group.update(group_params)
     redirect_to groups_path
   end
 
