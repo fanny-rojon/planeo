@@ -8,6 +8,10 @@ class Event < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :usergroups, through: :group
   has_many :event_dates, dependent: :destroy, inverse_of: :event
+  alias dates event_dates
+
+  has_one :confirmed_date, -> { where(confirmed: true) }, class_name: 'EventDate'
+
   validates_length_of :event_dates, maximum: 3
 
   validates :name, length: { in: 4..24 }
@@ -25,4 +29,16 @@ class Event < ApplicationRecord
   scope :organized_by, ->(user) { organized.where(organizer: user) }
   scope :not_organized_by, ->(user) { organized.where.not(organizer: user) }
   scope :proposed, -> { where(state: :proposed) }
+
+  def monthname
+    Date::ABBR_MONTHNAMES[confirmed_date.date.month]
+  end
+
+  def weekday
+    Date::ABBR_DAYNAMES[confirmed_date.date.wday]
+  end
+
+  def day
+    confirmed_date.date.day
+  end
 end
