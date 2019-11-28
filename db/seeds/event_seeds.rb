@@ -23,7 +23,7 @@ event2 = Event.create!(
   description: "Barcelona sucks."
 )
   event2.remote_photo_url = "https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/12/23/10/messi-marcelo.jpg?w968h681"
-  event2.event_dates << EventDate.new(date: Date.strptime('01/03/2020', '%m/%d/%Y'))
+  event2.event_dates << EventDate.new(date: Date.strptime('12/03/2020', '%m/%d/%Y'))
   event2.time = "20:00"
   event2.save
 
@@ -36,8 +36,8 @@ event3 = Event.create!(
   description: "Una caña por favor!"
 )
   event3.remote_photo_url = "https://ep01.epimg.net/elviajero/imagenes/2017/06/05/actualidad/1496661055_237522_1496665028_sumario_normal.jpg"
-  event3.event_dates << EventDate.new(date: Date.strptime('12/07/2019', '%m/%d/%Y'))
-  event3.event_dates << EventDate.new(date: Date.strptime('12/08/2019', '%m/%d/%Y'))
+  event3.event_dates << EventDate.new(date: Date.strptime('11/30/2019', '%m/%d/%Y'))
+  event3.event_dates << EventDate.new(date: Date.strptime('12/01/2019', '%m/%d/%Y'))
   event3.time = "18:00"
   event3.save
 
@@ -70,8 +70,8 @@ event6 = Event.create!(
   description: "Un peu de culture, svp!"
 )
   event6.remote_photo_url = "https://www.elsoldemexico.com.mx/cultura/arte/48j2v7-museo-del-prado.jpg/alternates/LANDSCAPE_400/museo del prado.jpg"
-  event6.event_dates << EventDate.new(date: Date.strptime('12/14/2019', '%m/%d/%Y'))
-  event6.event_dates << EventDate.new(date: Date.strptime('12/15/2019', '%m/%d/%Y'))
+  event6.event_dates << EventDate.new(date: Date.strptime('11/30/2019', '%m/%d/%Y'))
+  event6.event_dates << EventDate.new(date: Date.strptime('12/01/2019', '%m/%d/%Y'))
   event6.time = "11:00"
   event6.save
 
@@ -94,8 +94,8 @@ event8 = Event.create!(
   description: "Cheesecake cheesecake cheesecake"
 )
   event8.remote_photo_url = "https://media-cdn.tripadvisor.com/media/photo-s/16/c7/6b/fc/sala.jpg"
+  event8.event_dates << EventDate.new(date: Date.strptime('12/05/2019', '%m/%d/%Y'))
   event8.event_dates << EventDate.new(date: Date.strptime('12/06/2019', '%m/%d/%Y'))
-  event8.event_dates << EventDate.new(date: Date.strptime('12/07/2019', '%m/%d/%Y'))
   event8.time = "21:00"
   event8.save
 
@@ -108,7 +108,7 @@ event9 = Event.create!(
   description: "Teje Y MANEJEEEE"
 )
   event9.remote_photo_url = "https://media-cdn.tripadvisor.com/media/photo-s/15/9f/88/a6/barra.jpg"
-  event9.event_dates << EventDate.new(date: Date.strptime('12/30/2019', '%m/%d/%Y'))
+  event9.event_dates << EventDate.new(date: Date.strptime('12/07/2019', '%m/%d/%Y'))
   event9.time = "22:30"
   event9.save
 
@@ -130,8 +130,8 @@ event11 = Event.create!(
   organizer: User.find_by(name: "Isa")
 )
   event11.remote_photo_url = "http://www.elrincondeltrotamundos.com/wp-content/uploads/2013/10/Hoces-del-Duratón.-Segovia_0017.jpg"
-  event11.event_dates << EventDate.new(date: Date.strptime('12/12/2019', '%m/%d/%Y'))
-  event11.event_dates << EventDate.new(date: Date.strptime('12/28/2019', '%m/%d/%Y'))
+  event11.event_dates << EventDate.new(date: Date.strptime('12/14/2019', '%m/%d/%Y'))
+  event11.event_dates << EventDate.new(date: Date.strptime('12/21/2019', '%m/%d/%Y'))
   event11.time = "10:00"
   event11.save
 
@@ -170,6 +170,8 @@ event14 = Event.create!(
   organizer: User.find_by(name: "Karim")
 )
   event14.remote_photo_url = "https://i.gadgets360cdn.com/large/cod_mobile_main_1570103396815.jpg"
+  event14.event_dates << EventDate.new(date: Date.strptime('12/22/2020', '%m/%d/%Y'))
+  event14.time = "22:00"
   event14.save
 
 event15 = Event.create!(
