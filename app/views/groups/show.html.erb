@@ -30,12 +30,12 @@
             <div class="d-flex pl-3 align-items-center" >
               <% if event.confirmed_date.present? %>
                   <div class="text-center">
-                    <h3 style="font-weight: lighter; color: #F25004;"><%= event.monthname.upcase %></h3>
+                    <h3 style="color: #FF101F;"><%= event.monthname.upcase %></h3>
                     <h3><%= event.day %></h3>
                   </div>
                 <% else %>
                     <div class="text-center">
-                    <h3 style="font-weight: lighter; color: #F25004;">TBC</h3>
+                    <h3 style="color: #FF101F;">TBC</h3>
                   </div>
                 <% end %>
               <div>
@@ -75,12 +75,12 @@
               <div class="d-flex pl-3 align-items-center" >
                 <% if event.confirmed_date.present? %>
                     <div class="text-center">
-                      <h3 style="font-weight: lighter; color: #F25004;"><%= event.monthname.upcase %></h3>
+                      <h3 style="font-weight: lighter; color: #FF101F;"><%= event.monthname.upcase %></h3>
                       <h3><%= event.day %></h3>
                     </div>
                   <% else %>
                       <div class="text-center">
-                      <h3 style="color: #F25004;">TBC</h3>
+                      <h3 style="color: #FF101F;">TBC</h3>
                     </div>
                   <% end %>
                 <div>
