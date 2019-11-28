@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   def show
     myvotes = Vote.all.select { |vote| vote.user == current_user }
-    @myevents = myvotes.map { |vote| vote.event_date.event }.uniq
+    confirmedvotes = myvotes.select { |vote| vote.event_date.confirmed == true }
+    @myevents = confirmedvotes.map { |vote| vote.event_date.event }.uniq.sort_by! { |ev| ev.confirmed_date.date }
   end
 
   def edit
