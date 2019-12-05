@@ -17,9 +17,9 @@
         <div class="d-flex flex-column align-items-start justify-content-center pl-2">
           <div>
             <div class="d-flex w-100 p-2">
-              <i class="pr-3 fas fa-calendar-alt" style="color: #FF101F;"></i>
+              <i class="pr-3 fas fa-calendar-alt" style="color: #FF101F"></i>
               <% if @event.confirmed_date.present? %>
-                <h4 class="date-show mr-2 d-flex justify-content-between">
+                <h4 class="date-show mr-2 d-flex justify-content-between" style="opacity: 0.8">
                   <%= @event.weekday.upcase %>
                   <span style="margin-left: 5px; opacity: 0.2;">|</span>
                 </h4>
@@ -32,7 +32,7 @@
               <% end %>
             </div>
             <div class="d-flex w-75 p-2">
-                <i class="pr-3 fas fa-clock" style="color: #FF101F;"></i>
+                <i class="pr-3 fas fa-clock" style="color: #FF101F; opacity: 0.8"></i>
                 <h4 class="date-show mr-2"><%=@event.time%></h4>
             </div>
           </div>
