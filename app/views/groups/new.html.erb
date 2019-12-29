@@ -1,9 +1,11 @@
 <%= content_for(:title, "New Group") %>
 
 <div class="container mt-4 mb-4">
+
   <div class="text-center head mt-5 mb-5">
     <h2>CREATE GROUP</h2>
   </div>
+
     <%= simple_form_for (@group) do |f| %>
     <div class="box-w mt-3">
       <div class="form-inputs">
@@ -17,9 +19,11 @@
       <%= f.button :submit, class: "primary-button mt-5 mb-4"%>
     <% end %>
     </div>
+
     <div class="text-center mt-3 mb-3">
       <%= link_to "Go Back", groups_path, class: "secondary-button" %>
     </div>
+
   </div>
 </div>
 
