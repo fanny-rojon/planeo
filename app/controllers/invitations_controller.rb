@@ -1,4 +1,5 @@
 class InvitationsController < ApplicationController
+
   prepend_before_action :store_group_cookie
 
   def register
@@ -15,4 +16,5 @@ class InvitationsController < ApplicationController
   def store_group_cookie
     cookies[:invite_group_code] = params[:code]
   end
+
 end
