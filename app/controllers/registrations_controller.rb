@@ -1,6 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
-  def create
 
+  def create
     super
 
     return unless @user.persisted? && cookies[:invite_group_code].present?
