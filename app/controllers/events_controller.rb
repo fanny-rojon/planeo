@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+
   before_action :set_group, only: [:create]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :get_action_params, only: [:edit, :create]
@@ -98,4 +99,5 @@ class EventsController < ApplicationController
   def event_edit_params
     params.require(:event).permit(:name, :address, :photo, :time, :description)
   end
+
 end
