@@ -1,5 +1,4 @@
 class RegistrationsController < Devise::RegistrationsController
-
   def create
     super
 
@@ -9,5 +8,4 @@ class RegistrationsController < Devise::RegistrationsController
     @user.groups |= Array(group)
     cookies.delete(:invite_group_code)
   end
-
 end

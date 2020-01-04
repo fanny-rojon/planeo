@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def show
     myvotes = Vote.all.select { |vote| vote.user == current_user }
     confirmedvotes = myvotes.select { |vote| vote.event_date.confirmed == true }
@@ -28,5 +27,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :photo)
   end
-
 end

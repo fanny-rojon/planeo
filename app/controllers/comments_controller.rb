@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-
   before_action :set_event
   def new
     @comment = Comment.new
@@ -25,5 +24,4 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:content, :user_id, :event_id)
   end
-
 end

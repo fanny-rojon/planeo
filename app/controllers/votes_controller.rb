@@ -1,5 +1,4 @@
 class VotesController < ApplicationController
-
   def create
     @vote = Vote.new
     @event_date = EventDate.find(params[:event_date_id])
@@ -13,5 +12,4 @@ class VotesController < ApplicationController
     @event_date = vote.event_date
     vote.destroy
   end
-
 end
