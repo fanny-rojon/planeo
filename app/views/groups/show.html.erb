@@ -5,7 +5,7 @@
 <div class="main-container-two">
   <div class="text-center pt-2 border-bottom pb-2 group-photos d-flex justify-content-center w-100">
     <% @group.users.first(10).each do |user| %>
-    <img src="<%= user.photo %>" class="avatar photos" alt="">
+    <img src="<%= user.photo %>" class="photos" alt="" style="width: 40px; border-radius: 50%;">
     <% end %>
   </div>
   <div class="text-center head mt-3 mb-3">
@@ -174,13 +174,15 @@
 
       <div class="modal-body">
         <h5>Send this link to your friends to invite them to this group!</h5>
-          <div class="form-group">
+        <div class="d-flex">
+          <div style="width: 66%;">
             <%= text_field_tag :code, invite_url(code: @group.code), id: 'invite-link', class: 'form-control form-control-lg' %>
           </div>
 
-          <button class="btn btn-secondary" data-clipboard-target="#invite-link">
+          <button class="btn btn-danger" style="width: 34%;"data-clipboard-target="#invite-link">
             Copy link
           </button>
+        </div>
       </div>
 
       <script>new ClipboardJS('.btn');</script>
