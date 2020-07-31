@@ -48,6 +48,7 @@
 .container {
   max-width: 800px !important;
 }
+
 .main-container-two {
   width: 90%;
   margin: 0 auto;
@@ -57,12 +58,14 @@
     .main-container-two {
     max-width: 800px;
     margin: 0 auto;
-  }}
+    }
+  }
 @include media-breakpoint-up(xl) {
      .main-container-two {
     max-width: 810px;
     margin: 0 auto;
-  }}
+    }
+  }
 
 .loc {
   width: 100%;
@@ -71,5 +74,6 @@
 @include media-breakpoint-up(sm) {
     .loc {
     width: 50%;
-  }}
+    }
+  }
 
